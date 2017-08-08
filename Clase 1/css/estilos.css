@@ -1,0 +1,17 @@
+body{
+  /* background-color: pink; */
+/*font-style: italic*/;
+font-family: 'Indie Flower', cursive;
+}
+
+h1{
+background-color: green;
+font-style: italic;
+font-weight: normal;
+
+}
+
+h2{
+  background-color: #a3a3a3;
+  font-weight: normal;
+}
