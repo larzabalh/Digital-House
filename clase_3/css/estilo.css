@@ -3,6 +3,26 @@ background-image: url(../imagen/fondo.png);
 background-attachment: fixed;
 }
 
+header{
+  background-color: red;
+}
+
+section{
+
+}
+article li{
+  color: blue;
+  background-color: black;
+
+}
+
+footer{
+  background-color: green;
+width: 50px;
+height: 20px;
+
+}
+
 /* Le pone una imagen a los a href y en hover, cambia esa imagen.
 a {
        display: block;
