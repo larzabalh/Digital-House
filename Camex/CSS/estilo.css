@@ -1,0 +1,81 @@
+body{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+header{
+  background-color: rgb(203, 203, 203);
+  overflow: hidden;
+  border: black 3px solid;
+
+}
+.camex{
+  font-family: 'Cambo', serif;
+  margin-left: 100px;
+  font-size: 40px;
+}
+.frase{
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.encabezado{
+  border: black 2px solid;
+  float: left;
+  }
+
+header img{
+  width: 20px;
+}
+.derecha{
+  margin-left:60%;
+}
+.link{
+  margin-top: 5px;
+  margin-left:50%;
+  overflow: hidden;
+  list-style: none;
+}
+.redes{
+    float: left;
+    list-style: none;
+    margin-left: 10px;
+}
+.login{
+  background-color: rgba(158, 158, 158,1);
+  overflow: hidden;
+  border: black 2px solid;
+  width: 100%;
+}
+.login_contenedor{
+  overflow: hidden;
+  border: black 2px solid;
+  width: 100%;
+  margin-left: 80%;
+}
+.login-float{
+  overflow: hidden;
+  float: left;
+  border: black 2px solid;
+  padding-left: 10px;
+}
+
+nav{
+  overflow: hidden;
+  border: black 1px solid;
+  
+}
+
+nav li{
+  font-weight: bold;
+  margin-left: 40px;
+  list-style: none;
+  float: left;
+}
+li a{
+  text-decoration: none;
+  color: black;
+}
+.navegacion:hover, li a:hover{
+  color: blue;
+  font-size: 110%;
+}
