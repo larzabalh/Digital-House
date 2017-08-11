@@ -60,16 +60,25 @@ header img{
 }
 
 nav{
-  overflow: hidden;
+  background-image: url(../imagenes/fondo-nav.jpg);
   border: black 1px solid;
-  
+  margin-top: 0px;
+
+}
+nav ol{
+  overflow: hidden;
+  border: black 2px solid;
+  width: 50%;
+  height: 40px;
+  display: block;
+  margin: 0% auto;
 }
 
 nav li{
   font-weight: bold;
-  margin-left: 40px;
   list-style: none;
   float: left;
+  margin-left: 2%;
 }
 li a{
   text-decoration: none;
@@ -78,4 +87,41 @@ li a{
 .navegacion:hover, li a:hover{
   color: blue;
   font-size: 110%;
+}
+
+section{
+  overflow: hidden;
+  border: 1px black solid;
+
+}
+section div{
+  float: left;
+  border: 1px black solid;
+  margin-left: 50px;
+}
+.imag-sec{
+  width: px;
+}
+footer{
+  margin-top:100px;
+  overflow: hidden;
+}
+#frase{
+  border: black 2px solid;
+  width: 40%auto;
+  display: block;
+  margin: 0% auto;
+  text-align: center;
+}
+
+#derechos{
+  float: left;
+}
+footer img{
+  width: 10px;
+}
+#direccion{
+  float: right;
+  margin-right: 20px;
+  font-size: 10px;
 }

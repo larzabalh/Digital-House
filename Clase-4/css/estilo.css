@@ -1,0 +1,61 @@
+body{
+background-image: url(../imagen/fondo.png);
+background-attachment: fixed;
+font-family: cursive;
+}
+
+/* Le pone una imagen a los a href y en hover, cambia esa imagen.
+a {
+       display: block;
+       background: url(../imagen/gato.jpg) no-repeat;
+       height: 30px;
+       width: 250px;
+}
+
+a:hover {
+       background-position: 0 -30px;
+}
+*/
+}
+.campo{
+  font-style:italic;
+  font-weight: bold;
+
+}
+h1{
+  font-family: 'Bowlby One SC', cursive;
+  text-decoration: underline;
+}
+
+h2{
+  font-family: 'Indie Flower', cursive;
+}
+
+.datos{
+  }
+.universitario{
+  }
+.idioma{
+
+}
+.informatica{
+  }
+.hobbies{
+  }
+.redes{
+  }
+.titulos{
+  font-size: 30px;
+  text-decoration: underline;
+  text-shadow;
+}
+.contenidos{
+/*
+  color:rgba(176, 176, 176, 1);
+  font-size: 20px;
+  text-indent: 1px;
+  */
+}
+.mark{
+  background-color: red ;
+}
