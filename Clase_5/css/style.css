@@ -5,41 +5,89 @@ body{
 
 nav {
   width: 960px;
-  border: black 1px solid;
+  height: 45px;
   background-color: rgba(207, 35, 0, 0.56);
-  margin: 0 auto;
-  display: block;
-  overflow: hidden;
+  top: 50px;
+  left: 14%;
+  z-index: 1;
+  position: fixed;
+
+}
+nav div{
+  display: inline-block;
+  position: relative;
+  right: 95px;
+  bottom: 40px;;
 }
 
-nav div{
+div li{
   float: left;
+  margin-left: 50px;
+  list-style: none;
+  position: relative;
+  bottom: 39px;
 }
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+a:hover{
+  color: blue;
+  font-size: 130%;
+}
+
 
 #logo{
-  border: black 1px solid;
   position: relative;
-  right: 30px;
+  left: 83px;
+
 }
 
 section{
   position: relative;
-  top: 50px;
+  top: 140px;
   background-color: white;
   width: 960px;
-  border: black 1px solid;
-  margin: 0 auto;
-  display: block;
+  position: relative;
+  left: 14%;
   overflow: hidden;
 }
 
 section .flotan{
+  top: 10px;
+  position: relative;
+  left: 10px;
   margin-left: 10px;
   width: 300px;
+  height: 185px;
   border: black 1px solid;
+
   float: left;
 }
 
+.oferta{
+  position: relative;
+  top: -174px;
+  left: 233px;
+
+}
+.marca-agua{
+  position: relative;
+  top: -186px;
+  width: 300px;
+  text-align: center;
+  background-color:rgba(200, 200, 200,0.4);
+  color: rgba(255, 255, 236,0.5)
+}
+input{
+  position: relative;
+  top: -120px;
+  left: 95px;
+  background-color: red;
+  font-size: 20px;
+  color: white;
+}
 
 /*
 position: relative;

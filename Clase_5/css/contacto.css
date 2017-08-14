@@ -1,0 +1,20 @@
+body{
+  background-image: url(../imagenes/bg-2.png);
+}
+
+form{
+  width: 700px;
+  margin: 0 auto;
+  display: block;
+}
+
+form div{
+  margin-top: 20px;
+}
+
+.botones{
+  width: 158px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
+}
