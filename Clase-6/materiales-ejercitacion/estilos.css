@@ -1,0 +1,150 @@
+body {
+  background: url("bg-2.png");
+}
+
+div.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  width: 79%;
+  height: 50px;
+  background-color: #F05332;
+  margin-top: 60px;
+  position: fixed;
+  z-index: 20;
+}
+
+nav li {
+  float: left;
+  margin-right: 15px;
+}
+
+nav ul {
+  overflow: hidden;
+  list-style: none;
+  padding-top: 2px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+}
+
+div.logo {
+  position:absolute;
+  top: -15px;
+  left: -47px;
+}
+
+div.logo img {
+  width: 80px;
+}
+
+section {
+  width: 100%;
+  background-color: white;
+  /* margin-top: 20px; */
+  overflow: hidden;
+  position: relative;
+  top: 145px;
+}
+
+article {
+  float: left;
+  width: 30%;
+  margin-left: 1.6666666666666666666666%;
+  margin-right: 1.666666666666666666666%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+article img.principal {
+  width: 100%;
+}
+
+img.banderin {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+
+button {
+  position: absolute;
+  bottom: 13%;
+  /* margin: 0 auto; */
+  display: block;
+  width: 27%;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: red;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+p {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  width: 100%;
+  font-style: italic;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+@media (min-width:641px) and (max-width:959px)  {
+  article {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+img.hamb {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  article {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  div.logo {
+    display: none;
+  }
+
+  header ul {
+    display: none;
+    overflow: auto;
+  }
+
+  header ul li {
+    float: none;
+    background-color: #F05332;
+  }
+
+  img.hamb {
+    width: 15%;
+    margin-left: 10px;
+    display: block;
+    margin-top: 5px;
+  }
+
+  header:hover ul {
+    display: block;
+
+  }
+
+
+}

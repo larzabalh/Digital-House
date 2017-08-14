@@ -1,0 +1,144 @@
+body{
+  color: white;
+  box-sizing: border-box;
+}
+
+header{
+  width: 100%;
+  height: 20vh;
+  border: 1px solid black;
+  background-color: orange;
+  margin: 0 auto;
+  display: block;
+}
+ul{
+  overflow: hidden;
+}
+header img{
+  width: 3%;
+  display: none;
+}
+
+header li{
+  float: left;
+  list-style: none;
+  margin-left: 5%;
+}
+
+div.contenedor{
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid black;
+  overflow: hidden;
+
+}
+
+#uno,#dos,#tres {
+  float: left;
+}
+
+#uno{
+  width: 20.83%;
+  background-color: blue;
+}
+#dos{
+  width: 66.66%;
+  background-color: red;
+  margin-left: 2%;
+}
+#tres{
+  width: 8.33%;
+  background-color: yellow;
+}
+
+h2{
+  font-size: 1.75em;
+}
+p{
+  font-size: 0.81em;
+}
+
+@media (min-width:641px) and (max-width:959px){
+  body{
+    background-color: black;
+  }
+  header{
+    width: 60%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin: 0 auto;
+    display: block;
+    background-color: brown;
+  }
+header img{
+  display: block;
+  width: 10%;
+}
+header img:hover{
+  background-color: blue;
+  width: 15%;
+}
+
+header li{
+  float: none;
+  
+}
+
+
+
+  #uno{
+    width: 40vw;
+    background-color: blue;
+  }
+  #dos{
+    width: 40vw;
+    background-color: red;
+    margin-left:0%;
+  }
+  #tres{
+    float: none;
+    width: 100vw;
+    background-color: yellow;
+    margin: 0 auto;
+    display: block;
+  }
+
+
+}
+
+@media (max-width: 640px) {
+  body{
+    background-color: rgb(0, 255, 133);
+  }
+  header{
+    width: 60%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin: 0 auto;
+    display: block;
+    background-color: pink;
+    }
+  div.contenedor{
+    overflow: auto;
+  }
+  div.flotan{
+    float: none;
+
+  }
+  #uno{
+    width: 100%;
+    background-color: blue;
+  }
+  #dos{
+    width: 100%;
+    background-color: red;
+    margin-left:0%;
+  }
+  #tres{
+    width: 100%;
+    background-color: yellow;
+  }
+
+
+}
