@@ -1,0 +1,210 @@
+body{
+  background-image: url(../imagenes/bg-body.png);
+  box-sizing: border-box;
+  margin: 0;
+
+
+}
+
+nav{
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.contenedor{
+width: 80%;
+margin: 0 auto;
+display: block;
+
+}
+
+#logo{
+  border-radius: 50%;
+  width: 10%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 2%;
+}
+#hamburguesa{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 5%;
+  margin: 0 auto;
+  display: block;
+}
+ul{
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+li{
+  list-style: none;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+a{
+  text-decoration: none;
+}
+
+#banner{
+  display: none;
+}
+
+.articulo{
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+section article img{
+  width: 100%;
+}
+h2{
+  text-align: center;
+}
+section p{
+  text-align: justify;
+}
+
+footer{
+  margin-bottom: 20px;
+}
+
+@media (min-width:641px) and (max-width:959px){
+  nav{
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  ul{
+    overflow: hidden;
+  }
+
+  nav li{
+    float: left;
+    width: 12%;
+    margin-left: 1%;
+    padding: 10px;
+  }
+
+
+  a{
+    color: white;
+    background-color: black;
+    font-size: 10px;
+
+  }
+  ul{
+    text-align: center;
+
+  }
+  nav li:nth-child(1){
+    margin-left: 0px;
+
+  }
+
+
+  #banner{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  section{
+    overflow: hidden;
+  }
+  .articulo{
+    float: left;
+    width: 47%;
+
+  }
+  .articulo:nth-child(odd){
+    margin-left: 0px;
+
+  }
+
+  .articulo:nth-child(even){
+    margin-left: 6%;
+  }
+
+}
+
+@media (min-width:960px){
+
+nav{
+  padding-left: 8%;
+  padding-right: 3%;
+}
+  ul{
+    overflow: hidden;
+  }
+
+#hamburguesa{
+  display: none;
+}
+  nav li{
+    float: left;
+    width: 12%;
+    margin-left: 1%;
+    padding: 10px;
+
+  }
+
+
+  a{
+    color: white;
+    background-color: black;
+    font-size: 12px;
+
+  }
+  ul{
+    text-align: center;
+
+  }
+
+
+
+  #banner{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  section{
+    overflow: hidden;
+  }
+  .articulo{
+    float: left;
+    width: 32%;
+    margin-left: 16px;
+  }
+
+  .articulo:nth-child(1){
+    margin-left: 0px;
+  }
+  .articulo:nth-child(4n){
+    margin-left: 0px;
+  }
+
+footer li{
+  background-color: red;
+  height: 30px;
+  float: left;
+  width: 15%;
+  text-align: center;
+  padding-top: 5px;
+  border-left: 1px solid black;
+  border-color: white;
+  bor
+}
+footer a{
+
+  color: white;
+  background-color: red;
+}
+footer ul{
+  height: 50px;
+}
+
+}
