@@ -1,0 +1,46 @@
+.navegacion{
+  background: green;
+}
+
+nav.nav-principal{
+  border: 1px solid black
+}
+
+nav.nav-principal .nav-item{
+  transition: background-color .5s ease-in-out;
+}
+
+nav.nav-principal .nav-item:hover{
+  background-color: white;
+  color: black;
+
+}
+
+nav a{
+  font-size: 1.2rem;
+  color: white;
+}
+
+.jumbotron{
+  background-color: white;
+}
+.footer{
+
+}
+#ubicacion{
+  width: 90px;
+  border: 1px solid black;
+  position: relative;
+  left: 2px;
+}
+.miclase{
+  display: none;
+}
+
+
+@media (max-width:640px){
+  #barra{
+    display: none;
+  }
+
+}
