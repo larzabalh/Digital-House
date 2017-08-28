@@ -7,26 +7,51 @@
     <title>MI canvas</title>
   </head>
   <body id="arriba">
+<pre>
     <?php
+
+
     $nombre ="HERNAN LARZABAL";
     $perfil ="Mi profesion la realizo orientada al servicio de mis clientes.";
     $CV_de =[];
 
     $CV_de["nombre"]="OMAR";
 
-    $array = array(
-         "a",
-         "b",
-    6 => "c",
-         "d",
-            );
-var_dump($array);
-    
 
+//     $array = array(
+//       0=>"a",
+//       1=>"b",
+//       2=> "c",
+//       3=>"d",
+//             );
+// var_dump($array);
 
+// $array=[];
+// $array[0]=1;
+// $array[1]=2;
+// $array[2]=3;
+// var_dump($array);
+
+$datos = array(
+'nombre' => "HERNAN",
+'apellido'=>"LARZABAL",
+'edad'=>36,
+'ocupacion'=>"CONTADOR",
+'pais'=>"ARGENTINA",
+'direccion'=>"ventura Bosch 6725",
+'telefono'=>"4641-2924",
+'nacimiento'=>"30/12/1980",
+'mail'=>"larzabalh@hotmail.com",
+);
+// var_dump($datos);
+
+$estudios = array('CONTADOR', 'PROFESOR DE CIENCIAS ECONOMICAS', 'PROFE DE INGLES', 'ADMINISTRACION DE EMPRESAS');
+var_dump(estudios);
+
+$colors = array('rojo', 'azul', 'verde', 'amarillo');
 
      ?>
-
+</pre>
     <h1 align="center">CV <?php echo $nombre ?></h1>
     <h1 align="center"><img src="../imagen/hernan.jpg" alt="" width="200"></h1>
 <a href="#video">VER EL VIDEO</a>
@@ -36,19 +61,36 @@ var_dump($array);
 
 <h2 class="titulos">DATOS PERSONALES</h2>
     <ul class="datos contenidos">
-      <li>Nombre y Apellido:<p>HERNAN LARZABAL</p></li>
-      <li>Nacionalidad: <p>ARGENTINA</p></li>
-      <li><p>Direccion:<p><p>Ventura Bosch 6725</p></li>
-      <li>Telefono:<a href="46412924"></a><p>4641-2924</p></li>
-      <li>Mail:<p><a href="mailto:larzabalh@hotmail.com?subject=ASUNTO">larzabalh@hotmail.com</a></p></li>
-      <li>Fecha de Nacimiento:<p>30/12/1980</p></li>
+      <li>Nombre y Apellido: <?php echo $datos["nombre"]." ".$datos["apellido"]   ?></li>
+      <li>Nacionalidad: <?php echo $datos["pais"]?> </li>
+      <li>Direccion:<?php echo $datos["direccion"] ?> </li>
+      <li>Telefono:<a href="46412924"></a><?php echo $datos["telefono"] ?> </li>
+      <li>Mail:<a href="mailto:larzabalh@hotmail.com?subject=ASUNTO"><?php echo $datos["mail"] ?></a></li>
+      <li>Fecha de Nacimiento: <?php echo $datos["nacimiento"] ?></li>
     </ul>
 
 <h2 class="titulos">ESTUDIOS UNIVERSITARIOS COMPLETOS</h2>
   <ul class="universitario contenidos">
-    <li>CONTADOR PUBLICO</li>
+    <li><?php echo $estudios[0] ?></li>
     <li>PROFESOR DE CIENCIAS ECONOMICAS</li>
   </ul>
+
+  <?php
+  //
+  // foreach ($estudios as estudio) {
+  //   echo "Le gusta la profesion de $estudio";
+  // }
+
+   ?>
+
+   <?php
+
+
+   foreach ($estudios as $estudio) {
+       echo "¿Le gusta el $estudio? <br>";
+   }
+?>
+
 
 <h2 class="titulos">IDIOMAS</h2>
   <ul class="idioma contenidos">
