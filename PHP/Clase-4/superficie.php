@@ -26,9 +26,22 @@ echo "<br/>";
 echo "Ejercicio 2-C" .'<br/>';
 function cuadrado($lado1, $lado2){
 $superficie=$lado1*$lado2;
-
+}
+echo "<br/>";
+echo "<br/>";
+echo "Ejercicio 2-C" .'<br/>';
+function cuadrado ($lado1,$lado2){
+$superficie=$lado1*$lado2;
+return $superficie;
 }
 
+echo "<br/>";
+echo "<br/>";
+echo "Ejercicio 2-C" .'<br/>';
+function circulo($radio){
+$superficie= pi()*$radio*$radio;
+return $superficie;  
+}
 
 
 
