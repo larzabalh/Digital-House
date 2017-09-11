@@ -23,5 +23,20 @@ w+ = empieza a escribir desde el principio del archivo
 
 </p>
 
+<p>
+Los input del tipo FILE, deben llevar en el formulario:
+<form action="registrar.php" method="post"
+enctype="multipart/form-data">
+
+
+<input type="hidden"name="MAX_FILE_SIZE" value="30000"> esto va
+Nombre: <input type="text" name="nombre">
+Apellido: <input type="text" name="apellido">
+Avatar:<input type="file" name="imgPerfil">
+
+El servidor lo guarda en una carpeta temporal, que luego lo muevo a una carpeta en mi sitio, con una funcion que sea subir archivo.
+
+</p>
+
   </body>
 </html>

@@ -22,27 +22,38 @@ $archivo = "categorias.json";
 
 //Asi leo todo el archivo!!!!
 $lectura = file_get_contents($archivo);
-echo $lectura;
-echo "<br>";
-var_dump ($lectura);
-echo "<br>";
+//echo $lectura;
+//echo "<br>";
+//var_dump ($lectura);
+//echo "<br>";
 
 
 $b = json_decode ($lectura,true);
-echo "<br>";
-var_dump ($b);
+//echo "<br>";
+//var_dump ($b);
 
-foreach ($b as $key) {
-  if (is_array ($key)) {
-     foreach ($key as $value) {
-       if (is_array ($value)) {
-         foreach ($value as $indice => $clave) {
-           echo "esto es $clave"."<br>";
-         }
-        }
-     }
-  }
-}
-var_dump($indice);
-var_dump($clave);
+$categorias = $b['categorias'];
+var_dump($categorias);
+
+ // foreach ($categorias as $value) {
+ //       echo "cat: ".$value['id']." valor: ".$value['nombre']."<br>";
+ //  }
+
 ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>ESTOS SON LOS CHECKS</h1>
+
+<?php foreach ($categorias as $value) { ?>
+    <label for=""><?php echo $value['nombre'];?></label>
+    <input type="checkbox" name=<?php echo $value['id']; ?> value="">
+
+<?php } ?>
+  </body>
+</html>

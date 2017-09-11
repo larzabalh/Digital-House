@@ -1,0 +1,178 @@
+/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* mi css */
+
+body {
+  margin: 0;
+  background-image: url("../images/jovenencomputadora.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+	font-size: 2.5vh;
+
+
+}
+
+.container{
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/*HEADER */
+
+/* BURGER MENU */
+
+
+.header .menu-btn {
+  display: none;
+}
+
+
+div.header {
+	position: fixed;
+	width: 100%;
+	z-index: 1000000;
+}
+
+
+header {
+  overflow: hidden;
+  width: 100%;
+  height: 80px;
+  border-bottom: 0.1px solid gainsboro;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+header.index img.logo {
+	float: left;
+}
+
+header.index h1, h2 {
+  float: left;
+}
+
+nav.menu-movil {
+	display: none;
+}
+
+header.index li {
+  float: right;
+	margin-right:25px;
+	padding: 18px;
+	padding-top: 14px;
+	z-index: 100000;
+}
+
+.index nav a {
+	text-decoration: none;
+	color: black;
+	font-family: Oswald;
+	font-size: 1.2em;
+}
+div.container {
+	position: relative;
+
+}
+
+/* FIN HEADER */
+
+  article.text{
+     background-color: rgba(255, 255, 255, 0.5);
+     text-align: center;
+     display: inline-block;
+     height: 650px;
+	   width: 30%;
+	   border-radius: 15px;
+	   -webkit-box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.75);
+      margin-top: 20px;
+  }
+
+   p{
+     color: black;
+     font-family: Oswald;
+     font-size: 1.2em;
+   }
+
+   h1,h2{
+     text-align: center;
+   }
+
+	 /* FOOTER */
+	 footer {
+	 	background-color: #637a97;
+	 	padding: 3% 0;
+	 	text-align: center;
+	 	border-top: 2.5px solid black;
+	 	width: 100%;
+	 }
+
+	 footer img {
+	 	margin-bottom: 1.5%;
+	 }
+
+	 footer a {
+	 	padding-right: 10px;
+	 	text-decoration: none;
+	 	color: black;
+
+	 }
+	 footer a:last-child {
+	 	padding-right: 0;
+	 }
+
+	 footer a:hover {
+	 	color: white;
+	 }
+
+	 p.copyright {
+	 	padding: 15px 0;
+	 	width: 100%;
+	 	text-align: center;
+	 	background-color: #2d3845;
+	 	color: white;
+	 }
+	 /*FIN FOOTER*/
+
+
+
+/* dimension tablet */
+@media (max-width: 850px) {
+	header nav {
+		display: none;
+	}
+
+	header.index label.burgerMenu {
+		display: block;
+		float: right;
+		margin: 20px;
+}
