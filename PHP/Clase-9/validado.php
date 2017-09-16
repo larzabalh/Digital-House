@@ -1,15 +1,21 @@
 <?php
+
 session_start();
 
-echo "HOLA". " ".$_SESSION['usuario'];
+if (!$_SESSION['usuario']){
+header('Location: login.php');
 
+}
+
+echo "HOLA". " ".$_SESSION['nombre'];
 echo "<br>";
 echo "con el email:". " ".$_SESSION['email'];
-
+echo "<br>";
+echo "Con el usuario". " ".$_SESSION['usuario'];
 echo "<br>";
 echo "con la clave:". " ".$_SESSION['clave2'];
-
-
+echo "<br>";
+echo "con la edad:". " ".$_SESSION['edad'];
 echo "<br>";
 
  ?>

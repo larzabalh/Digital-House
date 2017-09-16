@@ -2,12 +2,21 @@
 
 require_once 'funciones.php';
 
+//esto lo hago para hacer el value del option!!!
+$numero=array();
+foreach (range(0, 100) as $incremento) {
+$numero []= $incremento;
+}
+
+
 $nombre= isset ($_POST['nombre'])? $_POST['nombre'] : null;
 $email= isset ($_POST['email'])? $_POST['email'] : null;
 $usuario= isset ($_POST['usuario'])? $_POST['usuario'] : null;
 $clave= isset ($_POST['clave'])? $_POST['clave'] : null;
 $clave2= isset ($_POST['clave2'])? $_POST['clave2'] : null;
+$edad= isset ($_POST['edad'])? $_POST['edad'] : null;
 
+var_dump($_POST);
 
 $errores= array();
 if ($_POST) {
@@ -30,6 +39,10 @@ if ($_POST) {
     if ($clave !==$clave2) {
       $errores['claves_distintas']="Las contraseñas no son iguales";
     }
+    if ($edad ==0 || $edad < 18) {
+      $errores['edad']="Selecciona una edad mayor a 18";
+    }
+
 
     if (!validar_mail($email)) {
       $errores['email_no_valido']="el email no es valido";
@@ -47,8 +60,6 @@ if ($_POST) {
 // $linea = buscar_usuario($email,$clave);
 //
 // var_dump($linea);
-
-
 
     //var_dump($errores);
     //die;
@@ -99,6 +110,18 @@ if ($_POST) {
                     <?php if (isset($errores['usuario'])){echo $errores['usuario'];}else{ echo "";} ?><br/>
                     <span id='register_username_errorloc' class='error'></span>
                 </div>
+
+                <div class='container'>
+                    <label for='usuario' >edad:</label><br/>
+                    <select class="" name="edad" id="edad">
+                      <?php for ($i=0; $i<=100 ; $i++) { ?>
+                        <option value=<?php echo $numero[$i]; ?>><?php echo $i ?></option>
+                        <?php } ?>
+                    </select>
+                    <?php if (isset($errores['edad'])){echo $errores['edad'];}else{ echo "";} ?><br/>
+
+                </div>
+
                 <div class='container' style='height:80px;'>
                     <label for='clave' >Contraseña*:</label><br/>
                     <div class='pwdwidgetdiv' id='thepwddiv' ></div>

@@ -5,7 +5,9 @@ require_once 'funciones.php';
 
 $email= isset ($_POST['email'])? $_POST['email'] : null;
 $clave= isset ($_POST['clave'])? $_POST['clave'] : null;
-$recordarme = isset ($_POST['clave'])? $_POST['clave'] : null;
+$recordarme = isset ($_POST['recordarme'])? $_POST['recordarme'] : null;
+
+
 
 $errores= array();
 if ($_POST) {
@@ -23,7 +25,7 @@ if ($_POST) {
 // $user = buscar...
 // if($user)
         if (!buscar_usuario($email,$clave)) {
-            $errores['error']="hay un error";
+            $errores['error']="Usuario o clave incorrecta";
 
             //var_dump($errores['no_existe_mail']);
             //header('Location: register.php');
@@ -44,14 +46,15 @@ if ($_POST) {
 
 $linea = buscar_usuario($email,$clave);
 
-    var_dump($errores);
+
     //die;
     if (count($errores)==0 && $linea){
        session_start();
-       $_SESSION['usuario']=$linea['usuario'];
+       $_SESSION['nombre']=$linea['nombre'];
        $_SESSION['email']=$linea['email'];
+       $_SESSION['usuario']=$linea['usuario'];
        $_SESSION['clave2']=$linea['clave2'];
-
+       $_SESSION['edad']=$linea['edad'];
         header('Location: validado.php');
 
     }
@@ -95,6 +98,11 @@ $linea = buscar_usuario($email,$clave);
                     <?php if (isset($errores['clave_distintas'])){echo $errores['clave_distintas'];}else{ echo "";} ?><br/>
                     <div id='register_password_errorloc' class='error' style='clear:both'></div>
                 </div>
+
+                <div class="">
+                  <p><?php if (isset($errores['error'])){echo $errores['error'];}else{ echo "";} ?></p>
+                </div>
+
 
                 <input type="checkbox" name="recordarme" value="1">RECORDARME
 
