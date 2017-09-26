@@ -244,22 +244,58 @@
                 </li>
                 <!-- NOTE: empiezan los botones de opciones de la izquierda -->
                 <li>
-                    <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> TABLERO</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> GRAFICOS<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i>CONFIGURACION<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
+                      <li>
+                          <a href="#">BANCOS<span class="fa arrow"></span></a>
+                          <ul class="nav nav-third-level">
+                              <li>
+                                  <a href="bancos.php">BANCOS</a>
+                              </li>
+                              <li>
+                                  <a href="#">CUENTAS BANCARIAS</a>
+                              </li>
+                              <li>
+                                  <a href="#">CHEQUERAS</a>
+                              </li>
+                              <li>
+                                  <a href="#">CHEQUES</a>
+                              </li>
+                              <li>
+                                  <a href="#">CONDICIONES DEL CHEQUE</a>
+                              </li>
+                              <li>
+                                  <a href="#">TARJETAS</a>
+                              </li>
+                              <li>
+                                  <a href="#">MOVIMIENTOS BANCARIOS</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-third-level -->
+                      </li>
+                      <li>
+                          <a href="#">GASTOS<span class="fa arrow"></span></a>
+                          <ul class="nav nav-third-level">
+                              <li>
+                                  <a href="#">NOMBRES DE GASTOS</a>
+                              </li>
+                              <li>
+                                  <a href="#">TIPOS DE GASTOS</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-third-level -->
+                      </li>
                         <li>
-                            <a href="flot.php">OPCION 1</a>
-                        </li>
-                        <li>
-                            <a href="morris.php">OPCION 2</a>
+                            <a href="#">MEDIOS DE PAGO</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="tables.php"><i class="fa fa-table fa-fw"></i> TABLAS</a>
+                    <a href="index.php"><i class="fa fa-dashboard fa-fw"></i>REGISTROS BANCARIOS</a>
+                </li>
+                <li>
+                    <a href="tables.php"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
                 </li>
                 <li>
                     <a href="forms.php"><i class="fa fa-edit fa-fw"></i> FORMULARIOS</a>
@@ -289,31 +325,13 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> GRAFICOS<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Second Level Item</a>
+                            <a href="flot.php">OPCION 1</a>
                         </li>
                         <li>
-                            <a href="#">Second Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-third-level -->
+                            <a href="morris.php">OPCION 2</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
