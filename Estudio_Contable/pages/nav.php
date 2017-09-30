@@ -253,7 +253,7 @@
                                   <a href="bancos.php">BANCOS</a>
                               </li>
                               <li>
-                                  <a href="#">CUENTAS BANCARIAS</a>
+                                  <a href="cuenta_bancaria.php">CUENTAS BANCARIAS</a>
                               </li>
                               <li>
                                   <a href="#">CHEQUERAS</a>

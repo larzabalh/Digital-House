@@ -1,36 +1,38 @@
 <?php
 require_once 'funciones.php';
 
+
+
 if (isset($_SESSION['login'])){
   header('Location: perfil.php');
 }
-
-
 $usuario= isset ($_POST['usuario'])? $_POST['usuario'] : null;
 $clave= isset ($_POST['clave'])? $_POST['clave'] : null;
 
-$errores= array();
+if ($_POST) {
+  $errores= array();
+    if (empty ($usuario) or empty($clave)){
+      $errores['error']= 'Por favor rellenar todos los campos correctamente';
+    }else {
+      $conexion= conexion();
+      $sql = "SELECT * from usuarios where nombre = '$usuario' limit 1)";
+      $query= $conexion->prepare($sql);
+      $query -> execute (array(':nombre'=>$usuario));
+      $resultado = $query->fetch();
 
+      var_dump($resultado);
+    }
 
-if (isset($_POST['enviar'])) {
-
-    if (!requerido($usuario)){
-      $errores['usuario']="el campo USUARIO es requerido";
-    }
-    if (!requerido($clave)){
-      $errores['clave']="el campo CLAVE es requerido";
-    }
-    if (!buscar_usu($usuario,$clave)){
-      $errores['usuario_error']="Usuario o clave incorrecto";
-    }
-    $linea=buscar_usu($usuario,$clave);
-
-    if (count($errores)==0){
-      session_start();
-      $_SESSION['login']="ok";
-      $_SESSION['usuario']=$linea['usuario'];
-      header('Location: ingresos.php');
-    }
+    // if (count($errores)==0){
+    //   session_start();
+    //
+    //
+    //
+    //
+    //   $_SESSION['login']="ok";
+    //   $_SESSION['usuario']=$linea['usuario'];
+    //   header('Location: ingresos.php');
+    // }
 
 }
  ?>
@@ -66,13 +68,13 @@ if (isset($_POST['enviar'])) {
               <br>
               <input id="usuario" type="text" name="usuario" value='<?php echo $usuario ?>'>
               <br>
-              <?php if (isset($errores['usuario'])){echo '<p class="error">'.$errores['usuario']."</p>";}elseif(isset($errores['usuario_error'])){echo '<p class="error">'.$errores['usuario_error']."</p>";}else{ echo "";}  ?>
               <br/>
               <label for="clave">Contraseña</label>
               <br>
               <input id="clave" type="password" name="clave" value="">
               <br/>
-              <?php if (isset($errores['clave'])){echo '<p class="error">'.$errores['clave'].'</p>';}else{ echo "";} ?>
+              <?php if (isset($errores['error'])){echo '<p class="error">'.$errores['error']."</p>";}elseif(isset($errores['usuario_error'])){echo '<p class="error">'.$errores['usuario_error']."</p>";}else{ echo "";}  ?>
+
             </div>
             <input id="recordarme" type="checkbox" name="recordarme" value="yes">
             <label for="recordarme">Recordarme</label>

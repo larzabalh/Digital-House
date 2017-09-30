@@ -2,16 +2,20 @@
 include "../metas/funciones.php";
 $conexion= conexion();
 $resultados =dropdown('bancos');
+$tabla = banco_cuenta();
 
 $banco= isset ($_POST['banco'])? $_POST['banco'] : null;
+$cuenta= isset ($_POST['cuenta'])? $_POST['cuenta'] : null;
 
 if ($_POST) {
+
     $errores= array();
-    if (empty($banco)){
-      $errores['error']= '** Por favor rellenar el campo BANCO';
+    if (empty($cuenta)){
+      $errores['error']= '** Por favor rellenar el campo CUENTA BANCARIA';
     }
     if (count($errores)==0){
-      insertar_banco($banco,$usuario=1);
+      $salida=insertar_cuenta($banco,$cuenta,$usuario=1);
+      echo $salida;
       }
     }
 
@@ -27,16 +31,21 @@ if ($_POST) {
 
       <?php include "nav.php" ?>
 
+
+
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">FORMULARIO</h1>
+                <div class="col-lg-6">
+                    <h1 class="page-header">ALTA</h1>
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="page-header">REGISTRADOS</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             FORMULARIO DE ALTA
@@ -44,10 +53,18 @@ if ($_POST) {
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form action="bancos.php" method="post" role="form">
+                                    <form action="cuenta_bancaria.php" method="post" role="form">
+                                      <div class="form-group">
+                                          <label>SELECCIONAR EL BANCO</label>
+                                          <select class="" name="banco">
+                                            <?php foreach ($resultados as $key => $value) {?>
+                                              <option value="<?php echo $value['idbancos'] ?>"><?php echo $value['banco_nombre']; ?></option>
+                                            <?php } ?>
+                                          </select>
+                                      </div>
                                         <div class="form-group">
-                                            <label>ALTA DE BANCO</label>
-                                            <input name="banco" class="form-control" placeholder="nombre del banco">
+                                            <label>NUMERO DE CUENTA</label>
+                                            <input name="cuenta" class="form-control" placeholder="alta de cuenta">
                                         </div>
                                         <div class="form-group">
                                             <label>HABILITADO</label>
@@ -58,6 +75,7 @@ if ($_POST) {
                                                 <input type="checkbox">NO
                                             </label>
                                         </div>
+
                                         <button type="submit" value="" class="btn btn-default">GUARDAR</button>
                                         <button type="reset" value="" class="btn btn-default">LIMPIAR</button>
                                         <br/>
@@ -72,23 +90,26 @@ if ($_POST) {
                     </div>
                     <!-- /.panel -->
                 </div>
+                <div class="col-lg-6">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>BANCO</th>
+                          <th>CUENTA</th>
+                        </tr>
+                      </thead>
+                      <tbody>
 
-                <div class="row">
-                    <div class="col-lg-3">
-                        <h2>BANCOS</h2>
-                        <ul class="list-group">
-                          <?php foreach ($resultados as $key => $value) {?>
-                            <li class="list-group-item"><?php echo $value['banco_nombre']; ?></li>
-                          <?php } ?>
-
-                        </ul>
-                    </div>
-                    <!-- /.col-lg-12 -->
+                        <?php foreach ($tabla as $key => $value) {?>
+                        <tr>
+                          <td><?php echo $value['BANCO']; ?></td>
+                          <td><?php echo $value['CUENTA_BANCARIA'];?></td>
+                        </tr>
+                        <?php } ?>
+                      </tbody>
+                    </table>
                 </div>
-
-
-
-                <!-- /.col-lg-12 -->
+                  <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
         </div>

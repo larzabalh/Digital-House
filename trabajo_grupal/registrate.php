@@ -1,21 +1,27 @@
 <?php
 require_once('funciones.php');
 
+$conexion= conexion();
+
 if (isset($_SESSION['usuario'])){
   header('Location: ingresos.php');
 
 }else {
 
     $usuario= isset ($_POST['usuario'])? $_POST['usuario'] : null;
+    $email= isset ($_POST['email'])? $_POST['email'] : null;
     $clave= isset ($_POST['clave'])? $_POST['clave'] : null;
     $clave2= isset ($_POST['clave2'])? $_POST['clave2'] : null;
 
     $errores= array();
 
-    if (isset($_POST['enviar'])) {
+  if ($_POST) {
 
         if (!requerido($usuario)){
           $errores['usuario']="el campo USUARIO es requerido";
+        }
+        if (!requerido($email)){
+          $errores['email']="el campo EMAIL es requerido";
         }
         if (!requerido($clave)){
           $errores['clave']="el campo PASSWORD es requerido";
@@ -26,12 +32,20 @@ if (isset($_SESSION['usuario'])){
         if ($clave !==$clave2) {
           $errores['claves_distintas']="Las contraseñas no son iguales";
         }
-        if (buscar_usuario($usuario,"usuarios.json")) {
-          $errores['usuario_existe']="El usuario ya existe en la Base de datos!!";
-        }
+        // if (buscar_usuario($usuario,"usuarios.json")) {
+        //   $errores['usuario_existe']="El usuario ya existe en la Base de datos!!";
+        // }
 
         if (count($errores)==0){
-          guardar($_POST,"usuarios.json");
+          try {
+            $clave = password_hash($clave,PASSWORD_DEFAULT);
+            $sql = "INSERT INTO usuarios (nombre,email,password) values ('$usuario', '$email','$clave')";
+            $query= $conexion->prepare($sql);
+            $query -> execute ();
+
+          } catch (Exception $e) {
+            echo "Hay un error: ".$e -> getMessage();
+          }
 
           header('Location: index.php');
         }
@@ -78,15 +92,7 @@ if (isset($_SESSION['usuario'])){
               <?php if (isset($errores['usuario_existe'])){echo $errores['usuario_existe'];}else{ echo "";} ?>
               <label class="control-label" for="email"> E-mail </label><br/>
               <input type="email" class="form-control" id="email" name="email" placeholder=" Ingrese su Email" value="<?php echo (isset($_POST['email'])) ? $_POST['email']: '' ?>">
-              <p class="text-danger">
-                <?php if(isset($errores['email'])){
-                    foreach($errores['email'] as $lista){
-                      echo $lista.'<br>';
-                    } } ?>
-              </p>
-
-
-
+              <?php if (isset($errores['email'])){echo $errores['email'];}else{ echo "";} ?><br/>
 
               <label for="clave" >Contraseña</label>
               <br>
@@ -98,26 +104,7 @@ if (isset($_SESSION['usuario'])){
               <?php if (isset($errores['claves_distintas'])){echo $errores['claves_distintas'];}else{ echo "";} ?><br/>
               <?php echo (isset($errores['email'])) ? ' has-error': '' ?>
 
-              <div class="avatar" <?php echo (isset($errores['avatar'])) ? ' has-error': '' ?>>
-              <label class="control-label"  for="avatar">Avatar : </label>
-              <input type="file" id="avatar" name="avatar">
-              <p class="text-danger">
-                <?php if(isset($errores['avatar'])){
-                    foreach($errores['avatar'] as $lista){
-                      echo $lista.'<br>';
-                    } }
-                    if (isset ($_FILES['avatar']['tmp_name'])){
-                      $file_ext= end (explode('.', $_FILES ['avatar']['name']));
 
-                      if (in_array)(strtolower ($file_ext) , array ('jpg','jpeg', 'png', 'gif') === false ){
-                        $errors[] = 'Tu avatar debe ser una imagen.';
-                      }
-                    }
-
-
-
-                     ?>
-              </div>
               <br>
             <input id="recordarme" type="checkbox" name="recordarme" value="yes">
             <label for="recordarme"> Recordarme </label>

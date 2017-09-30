@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+¿öö¶´¿<!DOCTYPE html>
 <html lang="es">
 <?php include "meta.php" ?>
 <body>
