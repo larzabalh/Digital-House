@@ -1,0 +1,97 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* mi css */
+
+body {
+  margin: 0;
+  background-image: url("../images/jovenencomputadora.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+	font-size: 2.5vh;
+
+	font-family: Oswald;
+
+
+}
+
+.container{
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+ul li {
+	list-style: none;
+}
+
+  article.text{
+     background-color: rgba(255, 255, 255, 0.5);
+     display: flex;
+		 align-items: center;
+		 justify-content: center;
+		 flex-direction: column;
+	   width: 80%;
+		 margin: 10vh 10%;
+		 height: 80vh;
+	   border-radius: 15px;
+	   -webkit-box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 35px 3px rgba(0,0,0,0.75);
+  }
+
+		article.text * {
+			text-align: center;
+		}
+
+.container   p{
+     color: black;
+     font-family: Oswald;
+   }
+
+.container	h1 {
+		font-size: 2em;
+
+	}
+.container   h2{
+     text-decoration: underline;
+   }
+
+
+
+
+/* dimension tablet */
+@media (max-width: 850px) {
+
+article.text {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+	}
