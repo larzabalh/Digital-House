@@ -1,17 +1,17 @@
 <?php
 include "../metas/funciones.php";
 $conexion= conexion();
-$resultados =tabla('bancos');
+$resultados =tabla('movimientos');
 
-$banco= isset ($_POST['banco'])? $_POST['banco'] : null;
+$movimiento= isset ($_POST['movimiento'])? $_POST['movimiento'] : null;
 
 if ($_POST) {
     $errores= array();
-    if (empty($banco)){
+    if (empty($movimiento)){
       $errores['error']= '** Por favor rellenar el campo BANCO';
     }
     if (count($errores)==0){
-      insertar_banco($banco,$usuario=1);
+      insertar_movimientos_bancarios($movimiento);
       }
     }
 
@@ -33,7 +33,7 @@ if ($_POST) {
                     <h1 class="page-header">FORMULARIO</h1>
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="page-header">BANCOS</h1>
+                    <h1 class="page-header">MOVIMIENTOS BANCARIOS</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -47,19 +47,10 @@ if ($_POST) {
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form action="bancos.php" method="post" role="form">
+                                    <form action="movimientos_bancarios.php" method="post" role="form">
                                         <div class="form-group">
-                                            <label>ALTA DE BANCO</label>
-                                            <input name="banco" class="form-control" placeholder="nombre del banco">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>HABILITADO</label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">SI
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">NO
-                                            </label>
+                                            <label>ALTA MOVIMIENTO</label>
+                                            <input name="movimiento" class="form-control" placeholder="transaccion">
                                         </div>
                                         <button type="submit" value="" class="btn btn-default">GUARDAR</button>
                                         <button type="reset" value="" class="btn btn-default">LIMPIAR</button>
@@ -78,10 +69,9 @@ if ($_POST) {
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <h2>BANCOS</h2>
                         <ul class="list-group">
                           <?php foreach ($resultados as $key => $value) {?>
-                            <li class="list-group-item"><?php echo $value['banco_nombre']; ?></li>
+                            <li class="list-group-item"><?php echo $value['movimientos_nombre']; ?></li>
                           <?php } ?>
 
                         </ul>

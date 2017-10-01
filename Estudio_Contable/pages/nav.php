@@ -256,19 +256,19 @@
                                   <a href="cuenta_bancaria.php">CUENTAS BANCARIAS</a>
                               </li>
                               <li>
-                                  <a href="#">CHEQUERAS</a>
+                                  <a href="chequera.php">CHEQUERAS</a>
                               </li>
                               <li>
-                                  <a href="#">CHEQUES</a>
+                                  <a href="cheque.php">CHEQUES</a>
                               </li>
                               <li>
                                   <a href="#">CONDICIONES DEL CHEQUE</a>
                               </li>
                               <li>
-                                  <a href="#">TARJETAS</a>
+                                  <a href="tarjetas.php">TARJETAS</a>
                               </li>
                               <li>
-                                  <a href="#">MOVIMIENTOS BANCARIOS</a>
+                                  <a href="movimientos_bancarios.php">MOVIMIENTOS BANCARIOS</a>
                               </li>
                           </ul>
                           <!-- /.nav-third-level -->

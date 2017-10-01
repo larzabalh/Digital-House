@@ -1,7 +1,7 @@
 <?php
 include "../metas/funciones.php";
 $conexion= conexion();
-$resultados =dropdown('bancos');
+$resultados =tabla('bancos');
 $tabla = banco_cuenta();
 
 $banco= isset ($_POST['banco'])? $_POST['banco'] : null;
