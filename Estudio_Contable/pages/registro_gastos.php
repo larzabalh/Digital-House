@@ -5,7 +5,6 @@ $gasto =tabla('gasto');
 $tipo_gasto =tabla('tipo_gasto');
 $cuotas =tabla('cuotas');
 $t_medio_de_pago=tabla('medio_de_pago');
-$tabla = datos_registros_gastos();
 
 $fecha= isset ($_POST['fecha'])? $_POST['fecha'] : null;
 $nombre_gasto_id= isset ($_POST['nombre_gasto_id'])? $_POST['nombre_gasto_id'] : null;
@@ -26,8 +25,7 @@ if ($_POST) {
       insertar_registro_gasto($fecha,$nombre_gasto_id,$importe,$tipo_gasto_id,$medio_pago_id,$cuotas_id,$pagado,$usuario=1);
       }
     }
-
-
+$tabla = datos_registros_gastos();
  ?>
 
 <!DOCTYPE html>
@@ -134,6 +132,7 @@ if ($_POST) {
                           <th>FECHA</th>
                           <th>IMPORTE</th>
                           <th>GASTO</th>
+                          <th>SALDO</th>
                           <th>TIPO DE GASTO</th>
                           <th>FORMA PAGO</th>
                           <th>CUOTAS</th>
@@ -141,12 +140,13 @@ if ($_POST) {
                         </tr>
                       </thead>
                       <tbody>
-
+                        <?php $acumulado =0 ?>
                         <?php foreach ($tabla as $key => $value) {?>
                         <tr>
                           <td><?php echo $value['fecha'];?></td>
-                          <td><?php echo $value['importe'];?></td>
+                          <td><?php echo "$".number_format($value['importe'],2,',','.');?></td>
                           <td><?php echo $value['nombre_gasto'];?></td>
+                          <td><?php echo $acumulado  += $value['importe']; ?><td>
                           <td><?php echo $value['destino_gasto'];?></td>
                           <td><?php echo $value['forma_de_pago'];?></td>
                           <td><?php echo $value['cuotas'];?></td>

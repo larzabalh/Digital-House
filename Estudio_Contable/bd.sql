@@ -19,6 +19,9 @@
 -- Table structure for table `bancos`
 --
 
+create database finanzas;
+  use finanzas;
+
 DROP TABLE IF EXISTS `bancos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;

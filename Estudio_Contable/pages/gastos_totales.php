@@ -2,7 +2,7 @@
 include "../metas/funciones.php";
 $conexion= conexion();
 $resultados =tabla('cuentas_bancaria');
-$tabla = datos_registros_gastos();
+// $tabla = datos_registros_gastos();
 
 $cuenta= isset ($_POST['cuenta'])? $_POST['cuenta'] : null;
 $numero_chequera= isset ($_POST['numero_chequera'])? $_POST['numero_chequera'] : null;
@@ -23,7 +23,7 @@ if ($_POST) {
       echo $salida;
       }
     }
-
+$tabla = datos_registros_gastos();
 
  ?>
 
