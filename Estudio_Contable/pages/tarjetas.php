@@ -5,7 +5,7 @@ $t_cuenta_bancaria =tabla('cuentas_bancaria');
 $t_usuario_tarjeta =tabla('usuarios_tarjetas');
 $t_movimientos =tabla('movimientos');
 $t_medio_de_pago=tabla('medio_de_pago');
-$tabla = datos_chequera();
+$tabla = datos_tarjetas();
 
 $nombre_tarjeta= isset ($_POST['nombre_tarjeta'])? $_POST['nombre_tarjeta'] : null;
 $dia_del_debito= isset ($_POST['dia_del_debito'])? $_POST['dia_del_debito'] : null;
@@ -128,22 +128,24 @@ if ($_POST) {
                         <tr>
                           <th>BANCO</th>
                           <th>CUENTA</th>
-                          <th>CHEQUERA Nº</th>
-                          <th>CANT. CHs</th>
-                          <th>DESDE</th>
-                          <th>HASTA</th>
+                          <th>TARJETA</th>
+                          <th>USUARIO TARJETA</th>
+                          <th>PAGO</th>
+                          <th>LIMITE</th>
+                          <th>DIA DEB.</th>
                         </tr>
                       </thead>
                       <tbody>
 
                         <?php foreach ($tabla as $key => $value) {?>
                         <tr>
-                          <td><?php echo $value['BANCO']; ?></td>
-                          <td><?php echo $value['CUENTA_BANCARIA'];?></td>
-                          <td><?php echo $value['CHEQUERA_NUMERO'];?></td>
-                          <td><?php echo $value['CANT_CH'];?></td>
-                          <td><?php echo $value['DESDE'];?></td>
-                          <td><?php echo $value['HASTA'];?></td>
+                          <td><?php echo $value['banco'];?></td>
+                          <td><?php echo $value['num_cuenta'];?></td>
+                          <td><?php echo $value['tarjeta'];?></td>
+                          <td><?php echo $value['usuarios_tarjeta'];?></td>
+                          <td><?php echo $value['forma_de_pago'];?></td>
+                          <td><?php echo $value['limite'];?></td>
+                          <td><?php echo $value['dia_del_debito'];?></td>
                         </tr>
                         <?php } ?>
                       </tbody>

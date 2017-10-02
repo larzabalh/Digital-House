@@ -109,3 +109,112 @@ function insertar_tarjeta($nombre_tarjeta,$dia_del_debito,$medio_de_pago_id,$lim
   }
   return $salida;
 }
+function datos_tarjetas(){
+  $conexion = conexion();
+  $sql = "SELECT nombre_tarjeta AS tarjeta, num_cuenta,forma_de_pago,limite,movimientos.movimientos_nombre AS movimiento, usuarios_tarjeta, dia_del_debito, banco_nombre AS banco
+          FROM tarjetas
+          JOIN medio_de_pago on medio_de_pago_id = idmedio_de_pago
+          JOIN cuentas_bancaria ON tarjetas.cuenta_bancaria_id = cuentas_bancaria.idcuentas_bancaria
+          JOIN usuarios_tarjetas ON usuario_tarjeta_id = idusuarios_tarjetas
+          JOIN movimientos ON movimiento_bancario_id = movimientos.idmovimientos_bancarios
+          JOIN bancos ON banco_id = idbancos";
+  $query2= $conexion->prepare($sql);
+  $query2->execute();
+  $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
+  return $resultados;
+}
+
+function insertar_tipo_gasto($tipo_gasto,$usuario=1){
+  $conexion = conexion();
+  try {
+    $sql = "INSERT INTO tipo_gasto (destino_gasto,usuario_id) values ('$tipo_gasto',$usuario)";
+    var_dump($sql);
+    $query= $conexion->prepare($sql);
+    $query -> execute ();
+
+  } catch (Exception $e) {
+    echo "Hay un error: ".$e -> getMessage();
+  }
+}
+
+function insertar_nombre_gasto($nombre_gasto,$medio_pago_id,$usuario=1){
+  $conexion = conexion();
+  try {
+    $sql = "INSERT INTO gasto (nombre_gasto,medio_pago_id,usuario_id) values ('$nombre_gasto',$medio_pago_id,$usuario)";
+    $query= $conexion->prepare($sql);
+    $query -> execute ();
+    $salida ='ok';
+  } catch (Exception $e) {
+    $salida =$e -> getMessage();
+  }
+  return $salida;
+}
+
+function datos_nombre_gasto(){
+  $conexion = conexion();
+  $sql = "SELECT nombre_gasto, forma_de_pago AS medio
+FROM gasto
+JOIN medio_de_pago ON medio_pago_id = idmedio_de_pago";
+  $query2= $conexion->prepare($sql);
+  $query2->execute();
+  $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
+  return $resultados;
+}
+
+function insertar_registro_gasto($fecha,$nombre_gasto_id,$importe,$tipo_gasto_id,$medio_pago_id,$cuotas_id,$pagado,$usuario=1){
+  $conexion = conexion();
+  try {
+    $sql = "INSERT INTO registros_gasto (fecha,nombre_gasto_id,importe,tipo_gasto_id,medio_pago_id,cuotas_id,pagado,usuario_id)
+    values ('$fecha',$nombre_gasto_id,$importe,$tipo_gasto_id,$medio_pago_id,$cuotas_id,$pagado,$usuario)";
+    $query= $conexion->prepare($sql);
+    $query -> execute ();
+    $salida ='ok';
+  } catch (Exception $e) {
+    $salida =$e -> getMessage();
+  }
+  return $salida;
+}
+
+function datos_registros_gastos(){
+  $conexion = conexion();
+  $sql = "SELECT rg.fecha,rg.importe,nombre_gasto,destino_gasto,mp.forma_de_pago,cuotas.numero_cuotas AS cuotas, REPLACE (pagado,1,'SI') AS pagado
+          FROM registros_gasto rg
+          JOIN gasto ON rg.nombre_gasto_id = idgasto
+          JOIN tipo_gasto ON rg.tipo_gasto_id = idtipo_gasto
+          JOIN medio_de_pago mp ON rg.medio_pago_id = mp.idmedio_de_pago
+          JOIN cuotas ON rg.cuotas_id = cuotas.idcuotas";
+  $query2= $conexion->prepare($sql);
+  $query2->execute();
+  $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
+  return $resultados;
+}
+
+function sumar_gastos(){
+  $total =0;
+  $datos= datos_registros_gastos();
+  foreach ($datos as $key => $value) {
+    $total+= $value['importe'];
+  }
+return $total;
+}
+
+function datos_registros_gastos_pagados($estado){
+  $conexion = conexion();
+  $sql = "SELECT rg.fecha,rg.importe,nombre_gasto,destino_gasto,mp.forma_de_pago,cuotas.numero_cuotas AS cuotas, REPLACE (pagado,1,'SI') AS pagado
+          FROM registros_gasto rg
+          JOIN gasto ON rg.nombre_gasto_id = idgasto
+          JOIN tipo_gasto ON rg.tipo_gasto_id = idtipo_gasto
+          JOIN medio_de_pago mp ON rg.medio_pago_id = mp.idmedio_de_pago
+          JOIN cuotas ON rg.cuotas_id = cuotas.idcuotas
+          WHERE
+           pagado =$estado";
+  $query2= $conexion->prepare($sql);
+  $query2->execute();
+  $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
+
+  $total =0;
+  foreach ($resultados as $key => $value) {
+    $total+= $value['importe'];
+  }
+return $total;
+}

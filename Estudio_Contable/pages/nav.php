@@ -277,10 +277,10 @@
                           <a href="#">GASTOS<span class="fa arrow"></span></a>
                           <ul class="nav nav-third-level">
                               <li>
-                                  <a href="#">NOMBRES DE GASTOS</a>
+                                  <a href="nombre_del_gasto.php">NOMBRES DE GASTOS</a>
                               </li>
                               <li>
-                                  <a href="#">TIPOS DE GASTOS</a>
+                                  <a href="tipo_gasto.php">TIPOS DE GASTOS</a>
                               </li>
                           </ul>
                           <!-- /.nav-third-level -->
@@ -295,19 +295,19 @@
                     <a href="index.php"><i class="fa fa-dashboard fa-fw"></i>REGISTROS BANCARIOS</a>
                 </li>
                 <li>
-                    <a href="tables.php"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
+                    <a href="registro_gastos.php"><i class="fa fa-table fa-fw"></i>REGISTRO DE GASTOS</a>
                 </li>
                 <li>
                     <a href="forms.php"><i class="fa fa-edit fa-fw"></i> FORMULARIOS</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> HERRAMIENTAS<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i> VISTAS<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panels-wells.php">HERRAMIENTA 1</a>
+                            <a href="gastos_totales.php">GASTOS TOTALES</a>
                         </li>
                         <li>
-                            <a href="buttons.php">HERRAMIENTA 2</a>
+                            <a href="buttons.php">GASTOS FIJOS</a>
                         </li>
                         <li>
                             <a href="notifications.php">HERRAMIENTA 3</a>
