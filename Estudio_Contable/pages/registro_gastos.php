@@ -129,10 +129,11 @@ $tabla = datos_registros_gastos();
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>PERIODO</th>
                           <th>FECHA</th>
                           <th>IMPORTE</th>
-                          <th>GASTO</th>
                           <th>SALDO</th>
+                          <th>GASTO</th>
                           <th>TIPO DE GASTO</th>
                           <th>FORMA PAGO</th>
                           <th>CUOTAS</th>
@@ -143,14 +144,15 @@ $tabla = datos_registros_gastos();
                         <?php $acumulado =0 ?>
                         <?php foreach ($tabla as $key => $value) {?>
                         <tr>
+                          <td><?php echo $value['periodo'];?></td>
                           <td><?php echo $value['fecha'];?></td>
-                          <td><?php echo "$".number_format($value['importe'],2,',','.');?></td>
+                          <td><?php echo formato_moneda($value['importe'],2,',','.');?></td>
+                          <td><?php echo formato_moneda($acumulado  += $value['importe']); ?></td>
                           <td><?php echo $value['nombre_gasto'];?></td>
-                          <td><?php echo $acumulado  += $value['importe']; ?><td>
                           <td><?php echo $value['destino_gasto'];?></td>
                           <td><?php echo $value['forma_de_pago'];?></td>
                           <td><?php echo $value['cuotas'];?></td>
-                          <td><?php echo $value['pagado'];?></td>
+                          <td><?php echo $pagado = ($value['pagado']) ? 'SI' : 'NO';?></td>
                         </tr>
                         <?php } ?>
                       </tbody>
