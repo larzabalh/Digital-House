@@ -130,6 +130,7 @@ $tabla = datos_registros_gastos();
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>ID</th>
                           <th>PERIODO</th>
                           <th>FECHA</th>
                           <th>IMPORTE</th>
@@ -145,6 +146,7 @@ $tabla = datos_registros_gastos();
                         <?php $acumulado =0 ?>
                         <?php foreach ($tabla as $key => $value) {?>
                         <tr>
+                          <td><?php echo $value['idregistros_tarjeta'];?></td>
                           <td><?php echo $value['periodo'];?></td>
                           <td><?php echo $value['fecha'];?></td>
                           <td><?php echo formato_moneda($value['importe'],2,',','.');?></td>

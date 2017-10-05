@@ -190,7 +190,7 @@ function insertar_registro_gasto($fecha,$nombre_gasto_id,$importe,$tipo_gasto_id
 
 function datos_registros_gastos(){
   $conexion = conexion();
-  $sql = "SELECT rg.fecha,rg.importe,nombre_gasto,destino_gasto,mp.forma_de_pago,cuotas.numero_cuotas AS cuotas, REPLACE (pagado,1,'SI') AS pagado, concat(year(rg.fecha),'-',month(rg.fecha)) AS periodo
+  $sql = "SELECT rg.idregistros_tarjeta,rg.fecha,rg.importe,nombre_gasto,destino_gasto,mp.forma_de_pago,cuotas.numero_cuotas AS cuotas, REPLACE (pagado,1,'SI') AS pagado, concat(year(rg.fecha),'-',month(rg.fecha)) AS periodo
           FROM registros_gasto rg
           JOIN gasto ON rg.nombre_gasto_id = idgasto
           JOIN tipo_gasto ON rg.tipo_gasto_id = idtipo_gasto
