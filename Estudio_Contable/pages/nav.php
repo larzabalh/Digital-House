@@ -304,7 +304,7 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> VISTAS<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="gastos_totales.php">GASTOS TOTALES</a>
+                            <a href="vista_gastos_totales.php">GASTOS TOTALES</a>
                         </li>
                         <li>
                             <a href="buttons.php">GASTOS FIJOS</a>

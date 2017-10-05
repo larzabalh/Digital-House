@@ -4,6 +4,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap-select.min.js"></script>
+
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 

@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: finanzas
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.26-MariaDB
+-- Server version	5.5.5-10.1.16-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,9 +18,6 @@
 --
 -- Table structure for table `bancos`
 --
-
-create database finanzas;
-  use finanzas;
 
 DROP TABLE IF EXISTS `bancos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -425,6 +422,33 @@ INSERT INTO `movimientos` VALUES (1,'TRANSFERENCIAS RECIBIDAS',0),(2,'TR REALIZA
 UNLOCK TABLES;
 
 --
+-- Table structure for table `periodo`
+--
+
+DROP TABLE IF EXISTS `periodo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `periodo` (
+  `idperiodo` varchar(10) NOT NULL,
+  `periodo` varchar(10) NOT NULL,
+  `orden` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idperiodo`),
+  UNIQUE KEY `idperiodo_UNIQUE` (`idperiodo`),
+  UNIQUE KEY `periodo_UNIQUE` (`periodo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='	';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `periodo`
+--
+
+LOCK TABLES `periodo` WRITE;
+/*!40000 ALTER TABLE `periodo` DISABLE KEYS */;
+INSERT INTO `periodo` VALUES ('','2017',1),('2017-01','2017-1',2),('2017-02','2017-2',3),('2017-03','2017-3',4),('2017-04','2017-4',5),('2017-05','2017-5',6),('2017-06','2017-6',7),('2017-07','2017-7',8),('2017-08','2017-8',9),('2017-09','2017-9',10),('2017-10','2017-10',11),('2017-11','2017-11',12),('2017-12','2017-12',13);
+/*!40000 ALTER TABLE `periodo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `registro_bancario`
 --
 
@@ -488,7 +512,7 @@ CREATE TABLE `registros_gasto` (
   CONSTRAINT `medio_pagoid` FOREIGN KEY (`medio_pago_id`) REFERENCES `medio_de_pago` (`idmedio_de_pago`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `nombre_gastoid` FOREIGN KEY (`nombre_gasto_id`) REFERENCES `gasto` (`idgasto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `tipo_gastoid` FOREIGN KEY (`tipo_gasto_id`) REFERENCES `tipo_gasto` (`idtipo_gasto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -497,7 +521,7 @@ CREATE TABLE `registros_gasto` (
 
 LOCK TABLES `registros_gasto` WRITE;
 /*!40000 ALTER TABLE `registros_gasto` DISABLE KEYS */;
-INSERT INTO `registros_gasto` VALUES (1,'2017-10-01',1,1500,1,1,1,1,1),(2,'2017-09-01',2,1200,2,2,3,0,1),(3,'2017-08-10',3,9500,1,1,1,1,1),(4,'2017-07-04',4,2500,2,4,3,1,1),(5,'2017-07-04',4,2500,2,4,3,1,1),(6,'2017-02-01',6,2532,6,3,1,0,1),(7,'2017-10-01',5,268,6,1,1,0,1);
+INSERT INTO `registros_gasto` VALUES (1,'2017-10-01',1,1500,1,1,1,1,1),(2,'2017-09-01',2,1200,2,2,3,0,1),(3,'2017-08-10',3,9500,1,1,1,1,1),(4,'2017-07-04',4,2500,2,4,3,1,1),(5,'2017-07-04',4,2500,2,4,3,1,1),(6,'2017-02-01',6,2532,6,3,1,0,1),(7,'2017-10-01',5,268,6,1,1,0,1),(8,'2017-10-04',1,15000,1,1,1,1,1);
 /*!40000 ALTER TABLE `registros_gasto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,4 +658,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-01 23:09:08
+-- Dump completed on 2017-10-05 10:39:31

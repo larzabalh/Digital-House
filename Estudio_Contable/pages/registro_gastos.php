@@ -26,6 +26,7 @@ if ($_POST) {
       }
     }
 $tabla = datos_registros_gastos();
+
  ?>
 
 <!DOCTYPE html>

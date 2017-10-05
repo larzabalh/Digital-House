@@ -10,6 +10,10 @@
     <meta name="author" content="">
 
     <title>ESTUDIO CONTABLE - LARZABAL</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

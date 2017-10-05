@@ -4,7 +4,7 @@ session_start();
 function conexion(){
   $dsn = 'mysql:host=localhost;dbname=finanzas;charset=utf8mb4;port:3306';
   $conexion_user= 'root';
-  $conexion_pass='root';
+  $conexion_pass='';
   try {
     $conexion=new PDO($dsn,$conexion_user,$conexion_pass);
   } catch (PDOException $e) {
@@ -17,6 +17,14 @@ $resultado= "$".number_format($importe,2,',','.');
 return $resultado;
 }
 
+function periodo(){
+  $conexion = conexion();
+  $sql = "SELECT * from periodo";
+  $query2= $conexion->prepare($sql);
+  $query2->execute();
+  $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
+  return $resultados;
+}
 
 function tabla($tabla){
   $conexion = conexion();
@@ -187,7 +195,9 @@ function datos_registros_gastos(){
           JOIN gasto ON rg.nombre_gasto_id = idgasto
           JOIN tipo_gasto ON rg.tipo_gasto_id = idtipo_gasto
           JOIN medio_de_pago mp ON rg.medio_pago_id = mp.idmedio_de_pago
-          JOIN cuotas ON rg.cuotas_id = cuotas.idcuotas";
+          JOIN cuotas ON rg.cuotas_id = cuotas.idcuotas
+          ";
+
   $query2= $conexion->prepare($sql);
   $query2->execute();
   $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
@@ -221,4 +231,20 @@ function datos_registros_gastos_pagados(){
     $total+= $value['importe'];
   }
 return $total;
+}
+
+function datos_registros_gastos_por_periodo($periodo){
+  $conexion = conexion();
+  $sql = "SELECT rg.fecha,rg.importe,nombre_gasto,destino_gasto,mp.forma_de_pago,cuotas.numero_cuotas AS cuotas, REPLACE (pagado,1,'SI') AS pagado, concat(year(rg.fecha),'-',month(rg.fecha)) AS periodo
+          FROM registros_gasto rg
+          JOIN gasto ON rg.nombre_gasto_id = idgasto
+          JOIN tipo_gasto ON rg.tipo_gasto_id = idtipo_gasto
+          JOIN medio_de_pago mp ON rg.medio_pago_id = mp.idmedio_de_pago
+          JOIN cuotas ON rg.cuotas_id = cuotas.idcuotas
+          WHERE rg.fecha LIKE '$periodo'
+          order by rg.fecha";
+  $query2= $conexion->prepare($sql);
+  $query2->execute();
+  $resultados = $query2->fetchAll(PDO::FETCH_ASSOC);
+  return $resultados;
 }
