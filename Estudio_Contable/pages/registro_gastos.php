@@ -14,6 +14,8 @@ $medio_pago_id= isset ($_POST['medio_pago_id'])? $_POST['medio_pago_id'] : null;
 $cuotas_id= isset ($_POST['cuotas_id'])? $_POST['cuotas_id'] : null;
 $pagado= isset ($_POST['pagado'])? $_POST['pagado'] : null;
 
+$editar= isset ($_POST['editar'])? $_POST['editar'] : null;
+var_dump($editar);
 if ($_POST) {
 // echo $cuenta.$numero_chequera.$cantidad_cheques.$desde.$hasta;
 
@@ -130,6 +132,7 @@ $tabla = datos_registros_gastos();
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>ACCIONES</th>
                           <th>ID</th>
                           <th>PERIODO</th>
                           <th>FECHA</th>
@@ -143,9 +146,13 @@ $tabla = datos_registros_gastos();
                         </tr>
                       </thead>
                       <tbody>
+                        <form class="" action="" method="post">
+
+
                         <?php $acumulado =0 ?>
                         <?php foreach ($tabla as $key => $value) {?>
                         <tr>
+                          <td><button class="btn btn-success"type="submit" name="editar" value=<?php echo $value['idregistros_tarjeta'];?>>EDITAR</button></td>
                           <td><?php echo $value['idregistros_tarjeta'];?></td>
                           <td><?php echo $value['periodo'];?></td>
                           <td><?php echo $value['fecha'];?></td>
@@ -158,6 +165,7 @@ $tabla = datos_registros_gastos();
                           <td><?php echo $pagado = ($value['pagado']) ? 'SI' : 'NO';?></td>
                         </tr>
                         <?php } ?>
+                        </form>
                       </tbody>
                     </table>
                 </div>

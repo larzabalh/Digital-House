@@ -4,7 +4,7 @@ session_start();
 function conexion(){
   $dsn = 'mysql:host=localhost;dbname=finanzas;charset=utf8mb4;port:3306';
   $conexion_user= 'root';
-  $conexion_pass='';
+  $conexion_pass='root';
   try {
     $conexion=new PDO($dsn,$conexion_user,$conexion_pass);
   } catch (PDOException $e) {
