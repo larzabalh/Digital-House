@@ -34,6 +34,8 @@ require 'header.php';
                           </tfoot>
                         </table>
                     </div>
+
+                    <!-- esto que sigue aca es el formulario del evento cargar!!! -->
                     <div class="panel-body" style="height: 400px;" id="formularioregistros">
                         <form name="formulario" id="formulario" method="POST">
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
