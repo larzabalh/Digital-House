@@ -44,9 +44,8 @@ class Usuario{
         echo "Esta dirección de correo ($mail) es válida.";
         $this->mail=$mail;
     }
-
-
   }
+
   public function setEdad($edad){
 
 if (is_int($edad)) {
@@ -58,6 +57,10 @@ if (is_int($edad)) {
 
   }
 
+  public function calcularedad($fecha){
+        list($Y,$m,$d) = explode("-",$fecha);
+        return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
+      }
 
 }
 

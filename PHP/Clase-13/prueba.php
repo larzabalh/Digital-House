@@ -44,6 +44,8 @@ echo "<br>";
 echo $gisela->setEdad(30.2);
 echo "<br>";
 
+echo $gisela->calcularedad('1972-12-30');
+echo "<br>";
 
 
 
