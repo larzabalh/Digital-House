@@ -19,13 +19,14 @@
     <link rel="shortcut icon" href="../public/img/favicon.ico">
 
     <!-- DATATABLES -->
-    <link rel="stylesheet" type="text/css" href="../public/datatables/jquery.dataTables.min.css">    
+    <link rel="stylesheet" type="text/css" href="../public/datatables/jquery.dataTables.min.css">
     <link href="../public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
     <link href="../public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
 
   </head>
+  <?php // NOTE: hold-transition skin-blue-light sidebar-mini ?>
   <body class="hold-transition skin-blue-light sidebar-mini">
     <div class="wrapper">
 
@@ -49,7 +50,7 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
-              
+
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -65,17 +66,17 @@
                       <small>www.youtube.com/jcarlosad7</small>
                     </p>
                   </li>
-                  
+
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    
+
                     <div class="pull-right">
                       <a href="#" class="btn btn-default btn-flat">Cerrar</a>
                     </div>
                   </li>
                 </ul>
               </li>
-              
+
             </ul>
           </div>
 
@@ -84,7 +85,7 @@
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">       
+        <section class="sidebar">
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
@@ -92,7 +93,7 @@
               <a href="#">
                 <i class="fa fa-tasks"></i> <span>Escritorio</span>
               </a>
-            </li>            
+            </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
@@ -104,7 +105,7 @@
                 <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categorías</a></li>
               </ul>
             </li>
-            
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
@@ -126,7 +127,7 @@
                 <li><a href="venta.php"><i class="fa fa-circle-o"></i> Ventas</a></li>
                 <li><a href="cliente.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
               </ul>
-            </li>                       
+            </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-folder"></i> <span>Acceso</span>
@@ -135,7 +136,7 @@
               <ul class="treeview-menu">
                 <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                 <li><a href="permiso.php"><i class="fa fa-circle-o"></i> Permisos</a></li>
-                
+
               </ul>
             </li>
             <li class="treeview">
@@ -144,7 +145,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="consultacompras.php"><i class="fa fa-circle-o"></i> Consulta Compras</a></li>                
+                <li><a href="consultacompras.php"><i class="fa fa-circle-o"></i> Consulta Compras</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -153,7 +154,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>                
+                <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
               </ul>
             </li>
             <li>
@@ -168,7 +169,7 @@
                 <small class="label pull-right bg-yellow">IT</small>
               </a>
             </li>
-                        
+
           </ul>
         </section>
         <!-- /.sidebar -->

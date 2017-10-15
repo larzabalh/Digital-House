@@ -1,9 +1,9 @@
-<?php 
+<?php
 //Ip de la pc servidor de base de datos
 define("DB_HOST","localhost");
 
 //Nombre de la base de datos
-define("DB_NAME", "dbsistema");
+define("DB_NAME", "finanzas");
 
 //Usuario de la base de datos
 define("DB_USERNAME", "root");

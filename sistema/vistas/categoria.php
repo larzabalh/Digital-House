@@ -1,5 +1,6 @@
 <?php
 require 'header.php';
+
 ?>
 <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "global.php";
 
 $conexion = new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
@@ -18,13 +18,14 @@ if (!function_exists('ejecutarConsulta'))
 	{
 		global $conexion;
 		$query = $conexion->query($sql);
+		// var_dump($query);
 		return $query;
 	}
 
 	function ejecutarConsultaSimpleFila($sql)
 	{
 		global $conexion;
-		$query = $conexion->query($sql);		
+		$query = $conexion->query($sql);
 		$row = $query->fetch_assoc();
 		return $row;
 	}
@@ -32,8 +33,8 @@ if (!function_exists('ejecutarConsulta'))
 	function ejecutarConsulta_retornarID($sql)
 	{
 		global $conexion;
-		$query = $conexion->query($sql);		
-		return $conexion->insert_id;			
+		$query = $conexion->query($sql);
+		return $conexion->insert_id;
 	}
 
 	function limpiarCadena($str)

@@ -1,10 +1,9 @@
 var tabla;
- 
+
 //Función que se ejecuta al inicio
 function init(){
     mostrarform(false);
     listar();
-
     $("#formulario").on("submit",function(e)
     {
         guardaryeditar(e);
