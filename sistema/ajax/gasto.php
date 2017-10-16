@@ -1,55 +1,65 @@
 <?php
 require_once "../modelos/Gasto.php";
 
-$nombre_gasto=new Gasto();
+$gasto=new Gasto();
 
-$idbanco=isset($_POST["idbanco"])? limpiarCadena($_POST["idbanco"]):"";
-$banco=isset($_POST["banco"])? limpiarCadena($_POST["banco"]):"";
+$idgasto=isset($_POST["idgasto"])? limpiarCadena($_POST["idgasto"]):"";
+$nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
+$medio_pago_id=isset($_POST["medio_pago_id"])? limpiarCadena($_POST["medio_pago_id"]):"";
+// var_dump($medio_pago_id);
+// var_dump($nombre);
+// var_dump($idgasto);
+
 
 switch ($_GET["op"]){
     case 'guardaryeditar':
-        if (empty($idbanco)){
-            $rspta=$entidad_bancaria->insertar($banco);
-            echo $rspta ? "Banco registrada" : "Banco no se pudo registrar";
+        if (empty($idgasto)){
+            $rspta=$gasto->insertar($nombre,$medio_pago_id);
+            echo $rspta ? "Gasto registrado" : "Gasto no se pudo registrar";
         }
         else {
-            $rspta=$entidad_bancaria->editar($idbanco,$banco);
-            echo $rspta ? "Banco actualizada" : "Banco no se pudo actualizar";
+            $rspta=$gasto->editar($idgasto,$nombre,$medio_pago_id);
+            echo $rspta ? "Gasto actualizado" : "Gasto no se pudo actualizar";
         }
     break;
 
     case 'desactivar':
-        $rspta=$entidad_bancaria->desactivar($idbanco);
-        echo $rspta ? "Banco Desactivada" : "Banco no se puede desactivar";
-        break;
+        $rspta=$gasto->desactivar($idgasto);
+        echo $rspta ? "Gasto Desactivado" : "Gasto no se puede desactivar";
+    break;
+
+    case 'eliminar':
+        $rspta=$gasto->eliminar($idgasto);
+        echo $rspta ? "Gasto Eliminado" : "Gasto no se puede eliminar";
     break;
 
     case 'activar':
-        $rspta=$entidad_bancaria->activar($idbanco);
-        echo $rspta ? "Banco activada" : "Banco no se puede activar";
-        break;
+        $rspta=$gasto->activar($idgasto);
+        echo $rspta ? "Gasto activado" : "Gasto no se puede activar";
     break;
 
     case 'mostrar':
-        $rspta=$entidad_bancaria->mostrar($idbanco);
+        $rspta=$gasto->mostrar($idgasto);
         //Codificar el resultado utilizando json
         echo json_encode($rspta);
-        break;
     break;
 
     case 'listar':
-        $rspta=$entidad_bancaria->listar();
+        $rspta=$gasto->listar();
         //Vamos a declarar un array
         $data= Array();
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
                 "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idgasto.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idgasto.')"><i class="fa fa-close"></i></button>':
+                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idgasto.')"><i class="fa fa-ban"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="eliminar('.$reg->idgasto.')"><i class="fa fa-trash-o"></i></button>':
                     '<button class="btn btn-warning" onclick="mostrar('.$reg->idgasto.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idgasto.')"><i class="fa fa-check"></i></button>',
-                "1"=>$reg->nombre_gasto,
-                "2"=>($reg->medio_pago_id)?'<span class="label bg-green">Activado</span>':
+                    ' <button class="btn btn-primary" onclick="activar('.$reg->idgasto.')"><i class="fa fa-ban"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="eliminar('.$reg->idgasto.')"><i class="fa fa-trash-o"></i></button>',
+                "1"=>$reg->nombre,
+                "2"=>$reg->forma_de_pago,
+                "3"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }
@@ -62,5 +72,16 @@ switch ($_GET["op"]){
 
     break;
 
+    case "selectAlgo":
+  		require_once "../modelos/Medio_de_pago.php";
+  		$medio = new Medio_de_pago();
+
+  		$rspta = $medio->select();
+
+  		while ($reg = $rspta->fetch_object())
+  				{
+  					echo '<option value=' . $reg->idmedio_de_pago . '>' . $reg->forma_de_pago . '</option>';
+  				}
+  	break;
   }
   ?>

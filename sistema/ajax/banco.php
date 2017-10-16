@@ -21,20 +21,26 @@ switch ($_GET["op"]){
     case 'desactivar':
         $rspta=$entidad_bancaria->desactivar($idbanco);
         echo $rspta ? "Banco Desactivada" : "Banco no se puede desactivar";
-        break;
+
+    break;
+
+    case 'eliminar':
+        $rspta=$entidad_bancaria->eliminar($idbanco);
+        echo $rspta ? "Banco Eliminado" : "Banco no se puede eliminar";
+
     break;
 
     case 'activar':
         $rspta=$entidad_bancaria->activar($idbanco);
         echo $rspta ? "Banco activada" : "Banco no se puede activar";
-        break;
+
     break;
 
     case 'mostrar':
         $rspta=$entidad_bancaria->mostrar($idbanco);
         //Codificar el resultado utilizando json
         echo json_encode($rspta);
-        break;
+
     break;
 
     case 'listar':
@@ -44,10 +50,14 @@ switch ($_GET["op"]){
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idbanco.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idbanco.')"><i class="fa fa-close"></i></button>':
+                "0"=>($reg->condicion)?
                     '<button class="btn btn-warning" onclick="mostrar('.$reg->idbanco.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idbanco.')"><i class="fa fa-check"></i></button>',
+                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idbanco.')"><i class="fa fa-ban"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="eliminar('.$reg->idbanco.')"><i class="fa fa-trash-o"></i></button>':
+                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idbanco.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-primary" onclick="activar('.$reg->idbanco.')"><i class="fa fa-ban"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="eliminar('.$reg->idbanco.')"><i class="fa fa-trash-o"></i></button>',
+
                 "1"=>$reg->banco,
                 "2"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'

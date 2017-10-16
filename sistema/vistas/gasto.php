@@ -11,7 +11,7 @@ require 'header.php';
               <div class="col-md-12">
                   <div class="box">
                     <div class="box-header with-border">
-                          <h1 class="box-title">Registrar Gasto <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></h1>
+                          <h1 class="box-title">Gasto <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -21,22 +21,16 @@ require 'header.php';
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>
                             <th>Opciones</th>
-                            <th>Fecha</th>
-                            <th>Importe</th>
-                            <th>Nombre</th>
-                            <th>Tipo Gasto</th>
-                            <th>Forma de Pago</th>
+                            <th>Medio de Pago</th>
+                            <th>Gasto</th>
                             <th>Estado</th>
                           </thead>
                           <tbody>
                           </tbody>
                           <tfoot>
                             <th>Opciones</th>
-                            <th>Fecha</th>
-                            <th>Importe</th>
-                            <th>Nombre</th>
-                            <th>Tipo Gasto</th>
-                            <th>Forma de Pago</th>
+                            <th>Medio de Pago</th>
+                            <th>Gasto</th>
                             <th>Estado</th>
                           </tfoot>
                         </table>
@@ -46,25 +40,13 @@ require 'header.php';
                     <div class="panel-body" style="height: 400px;" id="formularioregistros">
                         <form name="formulario" id="formulario" method="POST">
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <input type="hidden" name="idregistro_gasto" id="idregistro_gasto">
-                            <label>Fecha:</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" required>
+                            <input type="hidden" name="idgasto" id="idgasto">
+                            <label>Medio de Pago(*):</label>
+                            <select id="medio_pago_id" name="medio_pago_id" class="form-control selectpicker" data-live-search="true" required></select>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Importe:</label>
-                            <input type="number" class="form-control" name="importe" id="importe" maxlength="100" placeholder="1000" required>
-                          </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Gasto(*):</label>
-                            <select id="nombre" name="nombre" class="form-control selectpicker" data-live-search="true" required></select>
-                          </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Tipo Gasto:</label>
-                            <select id="tipo_gasto" name="tipo_gasto" class="form-control selectpicker" data-live-search="true" required></select>
-                          </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Medio de Pago:</label>
-                            <select id="forma_de_pago" name="forma_de_pago" class="form-control selectpicker" data-live-search="true" required></select>
+                            <label>Gasto:</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre del gasto" required>
                           </div>
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
@@ -84,4 +66,4 @@ require 'header.php';
 <?php
 require 'footer.php';
 ?>
-<script type="text/javascript" src="scripts/registro_gasto.js"></script>
+<script type="text/javascript" src="scripts/gasto.js"></script>

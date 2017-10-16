@@ -97,12 +97,17 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Almacén</span>
+                <span>Configuracion</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="articulo.php"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="banco.php"><i class="fa fa-circle-o"></i> Banco</a></li>
+                <li><a href="cuenta_bancaria.php"><i class="fa fa-circle-o"></i> Cuenta Bancaria</a></li>
+                <li><a href="tipo_gasto.php"><i class="fa fa-circle-o"></i> Tipo de Gasto</a></li>
+                <li><a href="gasto.php"><i class="fa fa-circle-o"></i> Gasto</a></li>
+                <li><a href="articulo.php"><i class="fa fa-circle-o"></i> Articulo</a></li>
+                <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categoria</a></li>
+
               </ul>
             </li>
 

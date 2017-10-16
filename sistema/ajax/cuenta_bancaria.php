@@ -67,6 +67,7 @@ switch ($_GET["op"]){
         echo json_encode($results);
 
     break;
+
     case "selectBanco":
   		require_once "../modelos/Banco.php";
   		$entidad_bancaria = new Banco();

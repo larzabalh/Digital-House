@@ -13,8 +13,8 @@ function init(){
 //Función limpiar
 function limpiar()
 {
-    $("#banco").val("");
-    $("#idbanco").val("");
+    $("#tipo_gasto").val("");
+    $("#idtipo_gasto").val("");
 }
 
 //Función mostrar formulario
@@ -59,7 +59,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/banco.php?op=listar',
+                    url: '../ajax/tipo_gasto.php?op=listar',
                     type : "get",
                     dataType : "json",
                     error: function(e){
@@ -80,7 +80,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../ajax/banco.php?op=guardaryeditar",
+        url: "../ajax/tipo_gasto.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -97,40 +97,26 @@ function guardaryeditar(e)
     limpiar();
 }
 
-function mostrar(idbanco)
+function mostrar(idtipo_gasto)
 {
-    $.post("../ajax/banco.php?op=mostrar",{idbanco : idbanco}, function(data, status)
+    $.post("../ajax/tipo_gasto.php?op=mostrar",{idtipo_gasto : idtipo_gasto}, function(data, status)
     {
         data = JSON.parse(data);
         mostrarform(true);
 
-        $("#banco").val(data.banco);
-        $("#idbanco").val(data.idbanco);
+        $("#tipo_gasto").val(data.tipo_gasto);
+        $("#idtipo_gasto").val(data.idtipo_gasto);
 
     })
 }
 
 //Función para desactivar registros
-function desactivar(idbanco)
+function desactivar(idtipo_gasto)
 {
-    bootbox.confirm("¿Está Seguro de desactivar el Banco?", function(result){
+    bootbox.confirm("¿Está Seguro de desactivar el Tipo de Gasto?", function(result){
         if(result)
         {
-            $.post("../ajax/banco.php?op=desactivar", {idbanco : idbanco}, function(e){
-                bootbox.alert(e);
-                tabla.ajax.reload();
-            });
-        }
-    })
-}
-
-//Función para eliminar registros
-function eliminar(idbanco)
-{
-    bootbox.confirm("¿Está Seguro de eliminar el Banco?", function(result){
-        if(result)
-        {
-            $.post("../ajax/banco.php?op=eliminar", {idbanco : idbanco}, function(e){
+            $.post("../ajax/tipo_gasto.php?op=desactivar", {idtipo_gasto : idtipo_gasto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             });
@@ -139,12 +125,12 @@ function eliminar(idbanco)
 }
 
 //Función para activar registros
-function activar(idbanco)
+function activar(idtipo_gasto)
 {
-    bootbox.confirm("¿Está Seguro de activar el Banco?", function(result){
+    bootbox.confirm("¿Está Seguro de activar el Tipo de Gasto?", function(result){
         if(result)
         {
-            $.post("../ajax/banco.php?op=activar", {idbanco : idbanco}, function(e){
+            $.post("../ajax/tipo_gasto.php?op=activar", {idtipo_gasto : idtipo_gasto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             });

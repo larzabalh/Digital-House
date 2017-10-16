@@ -11,9 +11,9 @@ function init(){
     })
 
     //Cargamos los items al select banco
-    $.post("../ajax/cuenta_bancaria.php?op=selectBanco", function(r){
-                $("#idbanco").html(r);
-                $('#idbanco').selectpicker('refresh');
+    $.post("../ajax/gasto.php?op=selectAlgo", function(r){
+                $("#medio_pago_id").html(r);
+                $('#medio_pago_id').selectpicker('refresh');
 
     });
 }
@@ -21,8 +21,8 @@ function init(){
 //Función limpiar
 function limpiar()
 {
-    $("#cuenta_bancaria").val("");
-    $("#idcuenta_bancaria").val("");
+    $("#nombre").val("");
+    $("#idgasto").val("");
 }
 
 //Función mostrar formulario
@@ -67,7 +67,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/cuenta_bancaria.php?op=listar',
+                    url: '../ajax/gasto.php?op=listar',
                     type : "get",
                     dataType : "json",
                     error: function(e){
@@ -90,7 +90,7 @@ function guardaryeditar(e)
 // throw new Error("my error message");
 
     $.ajax({
-        url: "../ajax/cuenta_bancaria.php?op=guardaryeditar",
+        url: "../ajax/gasto.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -107,28 +107,41 @@ function guardaryeditar(e)
     limpiar();
 }
 
-function mostrar(idcuenta_bancaria)
+function mostrar(idgasto)
 {
-    $.post("../ajax/cuenta_bancaria.php?op=mostrar",{idcuenta_bancaria : idcuenta_bancaria}, function(data, status)
+    $.post("../ajax/gasto.php?op=mostrar",{idgasto : idgasto}, function(data, status)
     {
         data = JSON.parse(data);
         mostrarform(true);
 
-        $("#idbanco").val(data.idbanco);
-        $('#idbanco').selectpicker('refresh');
-        $("#cuenta_bancaria").val(data.cuenta_bancaria);
-        $("#idcuenta_bancaria").val(data.idcuenta_bancaria);
+        $("#medio_pago_id").val(data.medio_pago_id);
+        $('#medio_pago_id').selectpicker('refresh');
+        $("#nombre").val(data.nombre);
+        $("#idgasto").val(data.idgasto);
 
     })
 }
 
 //Función para desactivar registros
-function desactivar(idcuenta_bancaria)
+function desactivar(idgasto)
 {
     bootbox.confirm("¿Está Seguro de desactivar la Cuenta Bancaria?", function(result){
         if(result)
         {
-            $.post("../ajax/cuenta_bancaria.php?op=desactivar", {idcuenta_bancaria : idcuenta_bancaria}, function(e){
+            $.post("../ajax/gasto.php?op=desactivar", {idgasto : idgasto}, function(e){
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            });
+        }
+    })
+}
+
+function eliminar(idgasto)
+{
+    bootbox.confirm("¿Está Seguro de eliminar el Gasto?", function(result){
+        if(result)
+        {
+            $.post("../ajax/gasto.php?op=eliminar", {idgasto : idgasto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             });
@@ -137,12 +150,12 @@ function desactivar(idcuenta_bancaria)
 }
 
 //Función para activar registros
-function activar(idcuenta_bancaria)
+function activar(idgasto)
 {
     bootbox.confirm("¿Está Seguro de activar la Cuenta Bancaria?", function(result){
         if(result)
         {
-            $.post("../ajax/cuenta_bancaria.php?op=activar", {idcuenta_bancaria : idcuenta_bancaria}, function(e){
+            $.post("../ajax/gasto.php?op=activar", {idgasto : idgasto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             });
