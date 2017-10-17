@@ -51,6 +51,7 @@ switch ($_GET["op"]){
         $rspta=$registro->listar();
         //Vamos a declarar un array
         $data= Array();
+        $saldo = 0;
 
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
@@ -60,12 +61,14 @@ switch ($_GET["op"]){
                     '<button class="btn btn-warning" onclick="mostrar('.$reg->idregistro_gasto.')"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idregistro_gasto.')"><i class="fa fa-ban"></i></button>'.
                     ' <button class="btn btn-danger" onclick="eliminar('.$reg->idregistro_gasto.')"><i class="fa fa-trash-o"></i></button>',
-                "1"=>$reg->fecha,
-                "2"=>$reg->importe,
-                "3"=>$reg->nombre,
-                "4"=>$reg->tipo_gasto,
-                "5"=>$reg->forma_de_pago,
-                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "1"=>$reg->periodo,
+                "2"=>$reg->fecha,
+                "3"=>formato_moneda($reg->importe),
+                "4"=>formato_moneda($saldo+=$reg->importe),
+                "5"=>$reg->nombre,
+                "6"=>$reg->tipo_gasto,
+                "7"=>$reg->forma_de_pago,
+                "8"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }
@@ -78,6 +81,15 @@ switch ($_GET["op"]){
 
     break;
 
+    case "selectPeriodo":
+  		$rspta=$registro->listar();
+
+  		while ($reg = $rspta->fetch_object())
+  				{
+  					echo '<option value=' . $reg->idregistro_gasto . '>' . $reg->periodo . '</option>';
+  				}
+  	break;
+
     case "selectGasto":
   		require_once "../modelos/Gasto.php";
   		$medio = new Gasto();
@@ -89,6 +101,7 @@ switch ($_GET["op"]){
   					echo '<option value=' . $reg->idgasto . '>' . $reg->nombre . '</option>';
   				}
   	break;
+
     case "selectMedio_de_pago":
   		require_once "../modelos/Gasto.php";
   		$medio = new Gasto();
@@ -107,7 +120,8 @@ switch ($_GET["op"]){
 
   		$rspta = $medio->select();
 
-  		while ($reg = $rspta->fetch_object())
+      echo '<option value=' . $reg->idtipo_gasto . '>' . $reg->tipo_gasto . '</option>';
+      while ($reg = $rspta->fetch_object())
   				{
   					echo '<option value=' . $reg->idtipo_gasto . '>' . $reg->tipo_gasto . '</option>';
   				}

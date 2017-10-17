@@ -13,6 +13,8 @@ require 'header.php';
                     <div class="box-header with-border">
                           <h1 class="box-title">Registrar Gasto <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></h1>
                         <div class="box-tools pull-right">
+                            <select id="periodo" name="periodo" class="form-control selectpicker" data-live-search="true" required></select>
+                          </div>
                         </div>
                     </div>
                     <!-- /.box-header -->
@@ -21,8 +23,10 @@ require 'header.php';
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>
                             <th>Opciones</th>
+                            <th>Periodo</th>
                             <th>Fecha</th>
                             <th>Importe</th>
+                            <th>Saldo</th>
                             <th>Nombre</th>
                             <th>Tipo Gasto</th>
                             <th>Forma de Pago</th>
@@ -32,8 +36,10 @@ require 'header.php';
                           </tbody>
                           <tfoot>
                             <th>Opciones</th>
+                            <th>Periodo</th>
                             <th>Fecha</th>
                             <th>Importe</th>
+                            <th>Saldo</th>
                             <th>Nombre</th>
                             <th>Tipo Gasto</th>
                             <th>Forma de Pago</th>
@@ -56,7 +62,7 @@ require 'header.php';
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Gasto(*):</label>
-                            <select id="nombre" name="nombre" class="form-control selectpicker" data-live-search="true" required></select>
+                            <select id="nombre" name="nombre" onchange="recargar_forma_pago()" class="form-control selectpicker" data-live-search="true" required></select>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Tipo Gasto:</label>

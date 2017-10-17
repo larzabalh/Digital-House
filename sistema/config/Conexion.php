@@ -43,5 +43,11 @@ if (!function_exists('ejecutarConsulta'))
 		$str = mysqli_real_escape_string($conexion,trim($str));
 		return htmlspecialchars($str);
 	}
+
+	function formato_moneda($importe){
+	$resultado= "$".number_format($importe,2,',','.');
+	return $resultado;
+	}
+
 }
 ?>

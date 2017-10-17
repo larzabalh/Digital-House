@@ -10,6 +10,13 @@ function init(){
         guardaryeditar(e);
     })
 
+    //Cargamos los items al select Periodo
+    $.post("../ajax/registro_gasto.php?op=selectPeriodo", function(r){
+                $("#periodo").html(r);
+                $('#periodo').selectpicker('refresh');
+
+    })
+
     //Cargamos los items al select Gasto
     $.post("../ajax/registro_gasto.php?op=selectGasto", function(r){
                 $("#nombre").html(r);
@@ -29,9 +36,9 @@ function init(){
                 $("#forma_de_pago").html(r);
                 $('#forma_de_pago').selectpicker('refresh');
 
-    });
+    })
 
-
+    ;
 }
 
 //Función limpiar

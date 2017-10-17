@@ -61,7 +61,7 @@ Class Registro_gasto
     //Implementar un método para listar los registros
     public function listar()
     {
-        $sql="SELECT idregistro_gasto,rg.fecha,rg.importe,gasto.nombre,tipo_gasto.tipo_gasto,mp.forma_de_pago,rg.condicion
+        $sql="SELECT idregistro_gasto,rg.fecha,rg.importe,gasto.nombre,tipo_gasto.tipo_gasto,mp.forma_de_pago,rg.condicion,concat(year(rg.fecha),'-',month(rg.fecha)) AS periodo
           FROM registro_gasto rg
           JOIN gasto ON rg.nombre_gasto_id = gasto.idgasto
           JOIN tipo_gasto ON rg.tipo_gasto_id = tipo_gasto.idtipo_gasto
