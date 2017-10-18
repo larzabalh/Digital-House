@@ -3,7 +3,7 @@
  abstract class Cuenta{
 
   private $cbu;
-  private $balance;
+  protected $balance;
   private $fecha_ultimo_movimiento;
 
 
@@ -40,8 +40,8 @@
 // programar su comportamiento). (Tener en cuenta que cada método debe, además,
 // modificar la fecha de último movimiento).
 
-  function debitar ($monto,$medio,$fecha){}
-  function acreditar ($monto,$medio,$fecha){}
+  public abstract function debitar ($monto,$medio,$fecha);
+  public function acreditar ($monto,$medio,$fecha){}
 
 }
 

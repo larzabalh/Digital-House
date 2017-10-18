@@ -6,6 +6,7 @@ include 'Empresas.php';
 include 'Multinacional.php';
 include 'Pyme.php';
 include 'Cuenta.php';
+include 'Classic.php';
 
 
 ?>
