@@ -191,5 +191,46 @@ function activar(idregistro_gasto)
     })
 }
 
+function listar_periodo(){
+
+  $('#periodo').change(function(){
+    // var selection = $('#periodo option:selected');
+    // var periodo = (selection.text());
+    var periodo = $("#periodo option:selected").text();
+
+      // $('#valor').html(periodo);
+
+
+    tabla=$('#tbllistado').dataTable(
+    {
+        "aProcessing": true,//Activamos el procesamiento del datatables
+        "aServerSide": true,//Paginación y filtrado realizados por el servidor
+        dom: 'Bfrtip',//Definimos los elementos del control de tabla
+        buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdf'
+                ],
+        "ajax":
+                {
+
+                    url: '../ajax/registro_gasto.php?op=listar_periodo',
+                    data: {periodo:periodo},
+                    type : "get",
+                    dataType : "json",
+                    error: function(e){
+                        console.log(e.responseText);
+                    }
+                },
+        "bDestroy": true,
+        "iDisplayLength": 20,//Paginación
+        "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
+    }).DataTable();
+
+    $('#jose').html('hola');
+  })
+}
+
 
 init();

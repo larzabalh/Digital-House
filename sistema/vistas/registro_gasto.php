@@ -9,14 +9,33 @@ require 'header.php';
         <section class="content">
             <div class="row">
               <div class="col-md-12">
+                <div class="col-md-12">
                   <div class="box">
                     <div class="box-header with-border">
                           <h1 class="box-title">Registrar Gasto <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></h1>
                         <div class="box-tools pull-right">
-                            <select id="periodo" name="periodo" class="form-control selectpicker" data-live-search="true" required></select>
-                          </div>
+                            <select id="periodo" onchange="listar_periodo()" name="periodo" class="form-control selectpicker" data-live-search="true" required></select>
+                            <div class="" id="valor"></div>
                         </div>
                     </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="box">
+                    <div class="box-header with-border">
+                          <h1 class="box-title">Registrar Gasto <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></h1>
+
+                        <div class="box-title" id="jose">
+                          TOTAL SUELDO JOSE LUIS:
+                        </div>
+                        <div class="box-tools pull-right">
+                            <select id="periodo" onchange="listar_periodo()" name="periodo" class="form-control selectpicker" data-live-search="true" required></select>
+                            <div class="" id="valor"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
                     <!-- /.box-header -->
                     <!-- centro -->
                     <div class="panel-body table-responsive" id="listadoregistros">

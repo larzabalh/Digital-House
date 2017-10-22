@@ -9,9 +9,8 @@ $importe=isset($_POST["importe"])? limpiarCadena($_POST["importe"]):"";
 $nombre_gasto_id=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $tipo_gasto_id=isset($_POST["tipo_gasto"])? limpiarCadena($_POST["tipo_gasto"]):"";
 $medio_pago_id=isset($_POST["forma_de_pago"])? limpiarCadena($_POST["forma_de_pago"]):"";
-// var_dump($medio_pago_id);
-// var_dump($importe);
-// var_dump($idregistro_gasto);
+
+$periodo=isset($_GET["periodo"])? limpiarCadena($_GET["periodo"]):"";
 
 
 switch ($_GET["op"]){
@@ -82,11 +81,13 @@ switch ($_GET["op"]){
     break;
 
     case "selectPeriodo":
-  		$rspta=$registro->listar();
+    require_once "../modelos/Periodo.php";
+    $per = new Periodo();
+  		$rspta=$per->select();
 
   		while ($reg = $rspta->fetch_object())
   				{
-  					echo '<option value=' . $reg->idregistro_gasto . '>' . $reg->periodo . '</option>';
+  					echo '<option value=' . $reg->idperiodo . '>' . $reg->periodo . '</option>';
   				}
   	break;
 
@@ -126,5 +127,41 @@ switch ($_GET["op"]){
   					echo '<option value=' . $reg->idtipo_gasto . '>' . $reg->tipo_gasto . '</option>';
   				}
   	break;
+
+    case 'listar_periodo':
+        $rspta=$registro->listar_periodo($periodo);
+        //Vamos a declarar un array
+        $data= Array();
+        $saldo = 0;
+
+        while ($reg=$rspta->fetch_object()){
+            $data[]=array(
+                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idregistro_gasto.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idregistro_gasto.')"><i class="fa fa-ban"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="eliminar('.$reg->idregistro_gasto.')"><i class="fa fa-trash-o"></i></button>':
+                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idregistro_gasto.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-primary" onclick="activar('.$reg->idregistro_gasto.')"><i class="fa fa-ban"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="eliminar('.$reg->idregistro_gasto.')"><i class="fa fa-trash-o"></i></button>',
+                "1"=>$reg->periodo,
+                "2"=>$reg->fecha,
+                "3"=>formato_moneda($reg->importe),
+                "4"=>formato_moneda($saldo+=$reg->importe),
+                "5"=>$reg->nombre,
+                "6"=>$reg->tipo_gasto,
+                "7"=>$reg->forma_de_pago,
+                "8"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                '<span class="label bg-red">Desactivado</span>'
+                );
+        }
+        $results = array(
+            "sEcho"=>1, //Información para el datatables
+            "iTotalRecords"=>count($data), //enviamos el total registros al datatable
+            "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+            "aaData"=>$data,
+          "resultado"=>234);
+        echo json_encode($results);
+    break;
+
+
   }
   ?>
