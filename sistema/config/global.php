@@ -9,7 +9,7 @@ define("DB_NAME", "finanzas");
 define("DB_USERNAME", "root");
 
 //Contraseña del usuario de la base de datos
-define("DB_PASSWORD", "");
+define("DB_PASSWORD", "root");
 
 //definimos la codificación de los caracteres
 define("DB_ENCODE","utf8");

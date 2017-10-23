@@ -222,13 +222,16 @@ function listar_periodo(){
                     error: function(e){
                         console.log(e.responseText);
                     }
-                },
+                }.done (function(data){
+                  var json_info = JSON.parse(data);
+                  $('#jose').html(json_info);              
+                });
         "bDestroy": true,
         "iDisplayLength": 20,//Paginación
         "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
     }).DataTable();
 
-    $('#jose').html('hola');
+
   })
 }
 
