@@ -224,7 +224,7 @@ function listar_periodo(){
                     }
                 }.done (function(data){
                   var json_info = JSON.parse(data);
-                  $('#jose').html(json_info);              
+                  $('#jose').html(json_info);
                 });
         "bDestroy": true,
         "iDisplayLength": 20,//Paginación

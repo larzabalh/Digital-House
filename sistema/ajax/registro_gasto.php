@@ -157,8 +157,7 @@ switch ($_GET["op"]){
             "sEcho"=>1, //Información para el datatables
             "iTotalRecords"=>count($data), //enviamos el total registros al datatable
             "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
-            "aaData"=>$data,
-          "resultado"=>234);
+            "aaData"=>$data);
         echo json_encode($results);
     break;
 
