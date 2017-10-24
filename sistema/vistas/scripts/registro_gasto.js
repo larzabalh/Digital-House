@@ -191,6 +191,7 @@ function activar(idregistro_gasto)
     })
 }
 
+<<<<<<< HEAD
 function listar_periodo(){
 
   $('#periodo').change(function(){
@@ -222,10 +223,12 @@ function listar_periodo(){
                     error: function(e){
                         console.log(e.responseText);
                     }
-                }.done (function(data){
-                  var json_info = JSON.parse(data);
-                  $('#jose').html(json_info);
-                });
+                }
+                // .done (function(data){
+                //   var json_info = JSON.parse(data);
+                //   $('#jose').html(json_info);
+                // })
+                ,
         "bDestroy": true,
         "iDisplayLength": 20,//Paginación
         "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
@@ -235,5 +238,7 @@ function listar_periodo(){
   })
 }
 
+=======
+>>>>>>> parent of 760d264... 22 Oct
 
 init();

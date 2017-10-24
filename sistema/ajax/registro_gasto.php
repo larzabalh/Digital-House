@@ -9,8 +9,9 @@ $importe=isset($_POST["importe"])? limpiarCadena($_POST["importe"]):"";
 $nombre_gasto_id=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $tipo_gasto_id=isset($_POST["tipo_gasto"])? limpiarCadena($_POST["tipo_gasto"]):"";
 $medio_pago_id=isset($_POST["forma_de_pago"])? limpiarCadena($_POST["forma_de_pago"]):"";
-
-$periodo=isset($_GET["periodo"])? limpiarCadena($_GET["periodo"]):"";
+// var_dump($medio_pago_id);
+// var_dump($importe);
+// var_dump($idregistro_gasto);
 
 
 switch ($_GET["op"]){
@@ -81,13 +82,11 @@ switch ($_GET["op"]){
     break;
 
     case "selectPeriodo":
-    require_once "../modelos/Periodo.php";
-    $per = new Periodo();
-  		$rspta=$per->select();
+  		$rspta=$registro->listar();
 
   		while ($reg = $rspta->fetch_object())
   				{
-  					echo '<option value=' . $reg->idperiodo . '>' . $reg->periodo . '</option>';
+  					echo '<option value=' . $reg->idregistro_gasto . '>' . $reg->periodo . '</option>';
   				}
   	break;
 
@@ -127,6 +126,7 @@ switch ($_GET["op"]){
   					echo '<option value=' . $reg->idtipo_gasto . '>' . $reg->tipo_gasto . '</option>';
   				}
   	break;
+<<<<<<< HEAD
 
     case 'listar_periodo':
         $rspta=$registro->listar_periodo($periodo);
@@ -162,5 +162,7 @@ switch ($_GET["op"]){
     break;
 
 
+=======
+>>>>>>> parent of 760d264... 22 Oct
   }
   ?>
