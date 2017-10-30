@@ -39,6 +39,7 @@
       php artisan make:controller NombreDeLaClase =crea una clase!!!
       php artisan make:model NombreDelModelo
       php artisan route:list
+      php artisan make:request Pelicula = Esta clase la creo, para personalizar mensajes del formulario
 
 
 
@@ -60,6 +61,13 @@
       laracast/flash esto es para mostrar mensajes!!!
     </p>
 
+
+    <p> Hacer la validacion en el PeliculaRequest y no en el controlador!!! Si llega al controlador es porque ya valido todo!
+    1- Creo la clase que hereda de Request, ej: PeliculaRequest. Normalmente voy a crear un REQUEST por cada formulario que cree.
+    2- Cambio el FALSE en el Request creado por true
+    3- Agrego los metodos de RULES y MESSAGES en el Request creado
+    4- En el controlador, le paso este PeliculasRequest como parametro!!!
+    </p>
 
   </body>
 </html>
