@@ -69,5 +69,26 @@
     4- En el controlador, le paso este PeliculasRequest como parametro!!!
     </p>
 
+
+    <p>
+      Cuando creo un modelo, por convencion, el modelo reconoce:
+      1- El nombre de la tabla de la bd.
+      2- Que el Primary Key se llama "id"
+      3- Que la clave foragnea FK, se llamarian, el nombre del tabla _ id, ejemplo: movies_id.
+
+      Si yo sigo esas convenciones, laravel reconoce las cosas. Ej:
+
+      Class Profile extens Model{
+
+        public function user(){
+
+            return $this->hasOne (User::class);
+        }
+
+      }
+
+
+    </p>
+
   </body>
 </html>
