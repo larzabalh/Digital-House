@@ -43,8 +43,13 @@
 
       php artisan storage:link = esto lo que hace es hacer un acceso directo de la carpeta STORAGE en PUBLIC. En Windows el comando que tengo que usar es:
       mklink /D public\storage ..\storage\app\public
+      php artisan route:list
+      php artisan make:middleware NombreMiddleware esto es para controlar las paginas
+        Los middleware van en Kernel, creo el Middleware y ademas lo agrego como clase en glogal o por pagina.
 
+      mailtrap: esto sirve para ver si envia los mails correctamente.
 
+oauth2callback
 
     </p>
 
