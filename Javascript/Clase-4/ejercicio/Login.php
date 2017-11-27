@@ -46,30 +46,7 @@
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </div>
-
-  <script type="text/javascript">
-
-  window.onload = function() {
-
-document.getElementById('form').onsubmit=function(e){
-  e.preventDefault();
-
-  if (document.getElementById('usuario').value == "" ) {
-    document.getElementById('error-usuario').innerHTML='El usuario no puede estar vacio';
-  }
-
-
-  if (document.getElementById('clave').value == "" ) {
-  document.getElementById('error-clave').innerHTML='La clave no puede estar vacia';
-  }
-
-}
-
-
-
-};
-
-  </script>
+<script src="script.js" charset="utf-8"></script>
 
 </body>
 </html>
