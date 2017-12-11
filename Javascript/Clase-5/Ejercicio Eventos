@@ -1,0 +1,77 @@
+<html>
+<head>
+  <style>
+  #tipito {
+    width:30px;
+    height:30px;
+    background-color:purple;
+    border-radius:50%;
+    position: relative;
+    left:0;
+  }
+  #posicion, #destino {
+    color:red;
+  }
+  </style>
+</head>
+<body>
+  <div id="tipito">
+  </div>
+
+  <hr>
+  <select id="colordetipito">
+    <option value="purple">Purpura</option>
+    <option value="blue">Azul</option>
+    <option value="red">Rojo</option>
+    <option value="yellow">Amarillo</option>
+    <option value="green">Verde</option>
+  </select>
+  <select id="velocidad">
+    <option selected="selected" value="10">Lentisimo</option>
+    <option value="20">Normal</option>
+    <option value="50">Rapidisimo</option>
+  </select>
+  <button id="botoncito">Levantate y anda</button>
+  <p>Tipito esta en: <span id="posicion">0</span></p>
+  <p>Le falta para llegar: <span id="destino">1024</span></p>
+
+  <script>
+
+  var lacinturadetipito = 30;
+  var anchomaximo = window.innerWidth;
+
+  document.getElementById('colordetipito').onchange = function() {
+    var nuevocolor = document.getElementById('colordetipito').value;
+    tipito.style.backgroundColor = nuevocolor;
+  }
+
+  document.getElementById('velocidad').addEventListener('change',
+                      function() {
+                            velocidad = document.getElementById('velocidad').value;
+                          });
+
+  var velocidad = 10;
+  var tipito = document.getElementById('tipito');
+  var botoncito = document.getElementById('botoncito');
+  var dondestatipito = 0;
+  function caminar() {
+    document.getElementById('posicion').innerHTML = dondestatipito;
+    document.getElementById('destino').innerHTML = anchomaximo - dondestatipito;
+
+    if(dondestatipito+parseInt(velocidad) >= anchomaximo) {
+      clearInterval(myinterval);
+    } else {
+    dondestatipito = dondestatipito + parseInt(velocidad);
+    tipito.style.left = dondestatipito + 'px';
+  }
+  }
+  var myinterval;
+
+  botoncito.onclick = function() {
+    myinterval = setInterval(caminar,100);
+  };
+
+  </script>
+
+</body>
+</html>
