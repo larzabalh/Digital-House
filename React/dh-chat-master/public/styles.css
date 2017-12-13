@@ -1,0 +1,46 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list {
+  width: 25%;
+}
+
+.user-list img {
+  margin-right: 4px;
+
+}
+
+.chatroom main {
+  display: flex;
+}
+
+.messages {
+  flex: 1;
+}
+
+.typing {
+  color: DodgerBlue;
+}
+.typing:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;    
+  }
+}
